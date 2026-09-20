@@ -54,7 +54,7 @@ export default function Home() {
         {/* Main logo */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src="/bee-logo.png"
+            src="/bee.logo.png"
             alt="BLUC FSHN bee character"
             className="hero-bee"
             style={{
