@@ -26,11 +26,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
+
 .brand-name {
   display: inline-block;
   position: relative;
   transform-origin: center;
-
   font-weight: 400;
   letter-spacing: -0.08em;
 
@@ -54,9 +54,7 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /*
-    Creates the thick inflated edge
-  */
+  /* Creates the thick inflated edge */
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.35);
 
   filter:
@@ -67,7 +65,6 @@ body {
     drop-shadow(0 0 35px rgba(255, 255, 255, 0.12));
 
   transform: scaleX(1.4) perspective(900px) rotateX(7deg);
-
   animation: floatLogo 6s ease-in-out infinite;
 }
 
@@ -87,12 +84,10 @@ body {
 .brand-name::before {
   content: "";
   position: absolute;
-
   top: 8%;
   left: 8%;
   right: 8%;
   height: 18%;
-
   border-radius: 999px;
 
   background: linear-gradient(
@@ -104,7 +99,6 @@ body {
 
   filter: blur(8px);
   opacity: 0.7;
-
   pointer-events: none;
 }
 
@@ -138,9 +132,9 @@ body {
 
   opacity: 0.9;
   mix-blend-mode: screen;
-
   pointer-events: none;
 }
+
 .logo-wrap {
   position: relative;
   display: inline-block;
@@ -168,7 +162,6 @@ body {
   -webkit-text-fill-color: transparent;
 
   opacity: 0.8;
-
   pointer-events: none;
 
   animation: colorShift 7s ease-in-out infinite;
@@ -190,10 +183,13 @@ body {
 .hero::before {
   content: "";
   position: absolute;
+
   width: 55vw;
   height: 55vw;
+
   top: 20%;
   left: 20%;
+
   transform: translate(-50%, -50%);
 
   background:
@@ -205,14 +201,16 @@ body {
 
   filter: blur(70px);
   pointer-events: none;
-  z-index:0
+  z-index: 0;
 }
 
 .hero::after {
   content: "";
   position: absolute;
+
   width: 50vw;
   height: 50vw;
+
   bottom: -15%;
   right: 0;
 
@@ -225,7 +223,7 @@ body {
 
   filter: blur(80px);
   pointer-events: none;
-  z-index:0;
+  z-index: 0;
 }
 
 .hero {
@@ -244,10 +242,12 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
 body::after {
   content: "";
   position: fixed;
   inset: 0;
+
   pointer-events: none;
   z-index: 9999;
 
@@ -258,10 +258,10 @@ body::after {
 
 .hero-logo {
   display: block;
+
   width: min(72vw, 850px);
   height: auto;
 
- 
   filter:
     drop-shadow(0 8px 12px rgba(0, 0, 0, 0.7))
     drop-shadow(0 0 18px rgba(255, 255, 255, 0.18))
@@ -300,16 +300,24 @@ body::after {
   }
 }
 
+/* =========================
+   BEE LOGO
+   ========================= */
+
 .hero-bee {
   position: absolute;
-  width: min(48vw, 620px);
+
+  /* Smaller bee */
+  width: min(18vw, 220px);
+
   height: auto;
 
   left: 50%;
   top: 50%;
 
-transform-style: preserve-3d;
-perspective: 800px;
+  transform-style: preserve-3d;
+  perspective: 800px;
+
   z-index: 2;
 
   filter:
@@ -319,8 +327,7 @@ perspective: 800px;
 
   animation: beeFloat 5s ease-in-out infinite;
 
-  transition:
-    filter 0.4s ease;
+  transition: filter 0.4s ease;
 }
 
 @keyframes beeFloat {
@@ -331,5 +338,62 @@ perspective: 800px;
 
   50% {
     transform: translate(-50%, -50%) translateY(-20px);
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 640px) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding: 1.25rem;
+  }
+
+  .hero-logo {
+    width: 82vw;
+    max-width: 360px;
+  }
+
+  /* Smaller bee on phones */
+  .hero-bee {
+    width: 42vw;
+    max-width: 190px;
+
+    filter:
+      drop-shadow(0 12px 15px rgba(0, 0, 0, 0.7))
+      drop-shadow(0 0 18px rgba(255, 20, 60, 0.12))
+      drop-shadow(0 0 22px rgba(170, 255, 0, 0.08));
+  }
+
+  .brand-name {
+    transform: scaleX(1.15) perspective(900px) rotateX(7deg);
+  }
+
+  .logo-wrap {
+    max-width: 100%;
+  }
+
+  .hero::before {
+    width: 100vw;
+    height: 100vw;
+
+    left: 50%;
+    top: 25%;
+  }
+
+  .hero::after {
+    width: 90vw;
+    height: 90vw;
+
+    right: -25%;
+    bottom: -10%;
   }
 }
