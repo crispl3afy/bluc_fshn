@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description:
     "BLUC FSHN — Nairobi streetwear blending bold design, contemporary style, and everyday expression.",
   icons: {
-    icon: "/favicon.png.png",
+    icon: "/favicon.png",
   },
   openGraph: {
     title: "BLUC FSHN | Nairobi Streetwear",
