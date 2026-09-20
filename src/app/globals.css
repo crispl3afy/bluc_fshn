@@ -255,3 +255,81 @@ body::after {
 
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
+
+.hero-logo {
+  display: block;
+  width: min(72vw, 850px);
+  height: auto;
+
+ 
+  filter:
+    drop-shadow(0 8px 12px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 0 18px rgba(255, 255, 255, 0.18))
+    drop-shadow(0 0 30px rgba(255, 20, 60, 0.12))
+    drop-shadow(0 0 35px rgba(170, 255, 0, 0.10));
+
+  animation: heroLogoFloat 6s ease-in-out infinite;
+
+  transition:
+    filter 0.4s ease,
+    transform 0.4s ease;
+}
+
+.hero-logo:hover {
+  filter:
+    drop-shadow(0 10px 15px rgba(0, 0, 0, 0.8))
+    drop-shadow(0 0 22px rgba(255, 255, 255, 0.25))
+    drop-shadow(0 0 38px rgba(255, 20, 60, 0.18))
+    drop-shadow(0 0 42px rgba(170, 255, 0, 0.16));
+}
+
+@keyframes heroLogoFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-logo {
+    width: 88vw;
+  }
+}
+
+.hero-bee {
+  position: absolute;
+  width: min(48vw, 620px);
+  height: auto;
+
+  left: 50%;
+  top: 50%;
+
+transform-style: preserve-3d;
+perspective: 800px;
+  z-index: 2;
+
+  filter:
+    drop-shadow(0 18px 20px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 0 22px rgba(255, 20, 60, 0.12))
+    drop-shadow(0 0 28px rgba(170, 255, 0, 0.08));
+
+  animation: beeFloat 5s ease-in-out infinite;
+
+  transition:
+    filter 0.4s ease;
+}
+
+@keyframes beeFloat {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+}

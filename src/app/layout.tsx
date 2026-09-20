@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Anton } from "next/font/google";
+import { Geist, Geist_Mono,  Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
-const anton = Anton({
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  weight: "400",
+  weight: "300",
 });
 
 const geistSans = Geist({
@@ -20,6 +20,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "BLUC FSHN",
   description: "BLUC FSHN - Nairobi streetwear.",
+  icons:{
+    icon:"/favicon.png.png",
+
+  },
 };
 
 export default function RootLayout({
@@ -32,7 +36,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className={anton.className}>{children}</body>
+      <body className={barlowCondensed.className}>{children}</body>
     </html>
   );
 }

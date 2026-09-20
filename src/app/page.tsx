@@ -45,34 +45,29 @@ export default function Home() {
   BLUC FSHN
 </p>
 
-          <p className="text-sm tracking-[0.2em]">
+          <p className="text-sm tracking-[0.35em]">
             NAIROBI, KENYA
           </p>
         </div>
 
         {/* Main logo */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative">
+       <div className="absolute inset-0 flex items-center justify-center">
+         <img
+         src="/bee-logo.png"
+          alt="BLUC FSHN bee character"
+           className="hero-bee"
+           style={{
+                 marginLeft: `${(mousePosition.x - 50) * 0.12}px`,
+                 marginTop: `${(mousePosition.y - 50) * 0.08}px`,
+                
+                 
+               }}
+        />
 
-            <div className="logo-wrap">
-  <h1 className="brand-name text-[27vw] leading-[0.8] font-normal tracking-[-0.08em]">
-    BLUC
-  </h1>
+      </div>
 
-  <h1
-    className="brand-color text-[27vw] leading-[0.8] font-normal tracking-[-0.08em]"
-    aria-hidden="true"
-  >
-    BLUC
-  </h1>
-</div>
-
-            <p className="absolute left-1/2 -translate-x-1/2 -bottom-8 text-sm tracking-[0.8em]">
-              FSHN
-            </p>
-
-          </div>
-        </div>
+        
+      
 
         {/* Bottom information */}
         <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 flex justify-between items-end">
@@ -88,7 +83,7 @@ export default function Home() {
 
           <a 
           href="#collection"
-          className="text-xs tracking-[0.25em] transition-opacity duration-300 hover:opacity-50 ">
+          className="text-xs tracking-[0.35em] transition-opacity duration-300 hover:opacity-50 ">
             SCROLL TO EXPLORE
           </a>
 
@@ -112,7 +107,7 @@ export default function Home() {
           </div>
 
           <p className="hidden text-xs tracking-[0.25em] text-zinc-500 md:block">
-            SS26
+            SS23
           </p>
         </div>
 
@@ -235,7 +230,7 @@ export default function Home() {
           <div>
            <a
   href="#top"
-  className="text-sm font-medium tracking-[0.25em] transition-opacity duration-300 hover:opacity-50"
+  className="text-sm font-medium tracking-[0.4em] transition-opacity duration-300 hover:opacity-50"
 >
   BLUC FSHN
 </a>
@@ -324,7 +319,7 @@ export default function Home() {
         </div>
 
         <div className="mt-16 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-[10px] tracking-[0.2em] text-zinc-600 md:flex-row">
-          <p>© 2026 BLUC FSHN</p>
+          <p>© 2023BLUC FSHN</p>
           <p>MADE IN NAIROBI</p>
         </div>
 
