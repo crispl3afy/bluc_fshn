@@ -18,6 +18,7 @@
 
 html {
   background: var(--background);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -26,6 +27,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
+
+/* =========================
+   BRAND NAME
+   ========================= */
 
 .brand-name {
   display: inline-block;
@@ -180,6 +185,19 @@ body {
   }
 }
 
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.025),
+      transparent 55%
+    );
+}
+
 .hero::before {
   content: "";
   position: absolute;
@@ -226,39 +244,16 @@ body {
   z-index: 0;
 }
 
-.hero {
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, 0.025),
-      transparent 55%
-    );
-}
-
 .hero::marker {
   display: none;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-  z-index: 9999;
-
-  opacity: 0.035;
-
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-}
+/* =========================
+   HERO LOGO
+   ========================= */
 
 .hero-logo {
   display: block;
-
   width: min(72vw, 850px);
   height: auto;
 
@@ -266,7 +261,7 @@ body::after {
     drop-shadow(0 8px 12px rgba(0, 0, 0, 0.7))
     drop-shadow(0 0 18px rgba(255, 255, 255, 0.18))
     drop-shadow(0 0 30px rgba(255, 20, 60, 0.12))
-    drop-shadow(0 0 35px rgba(170, 255, 0, 0.10));
+    drop-shadow(0 0 35px rgba(170, 255, 0, 0.1));
 
   animation: heroLogoFloat 6s ease-in-out infinite;
 
@@ -294,14 +289,8 @@ body::after {
   }
 }
 
-@media (max-width: 640px) {
-  .hero-logo {
-    width: 88vw;
-  }
-}
-
 /* =========================
-   BEE LOGO
+   BEE
    ========================= */
 
 .hero-bee {
@@ -309,7 +298,6 @@ body::after {
 
   /* Smaller bee */
   width: min(18vw, 220px);
-
   height: auto;
 
   left: 50%;
@@ -342,58 +330,52 @@ body::after {
 }
 
 /* =========================
-   MOBILE
+   GRAIN / NOISE
    ========================= */
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  opacity: 0.035;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* =========================
+   CAN CURSOR
+   ========================= */
+
+html,
+body {
+  cursor: url("/cancursor.png") 35 35, auto !important;
+}
+
+html *,
+body * {
+  cursor: url("/can.cursor.png") 35 35, auto !important;
+}
+
+/* Phones use normal cursor */
 @media (max-width: 640px) {
   html,
-  body {
-    width: 100%;
-    overflow-x: hidden;
+  body,
+  html *,
+  body * {
+    cursor: auto !important;
   }
-
-  .hero {
-    min-height: 100svh;
-    padding: 1.25rem;
-  }
-
-  .hero-logo {
-    width: 82vw;
-    max-width: 360px;
-  }
-
-  /* Smaller bee on phones */
-  .hero-bee {
-    width: 42vw;
-    max-width: 190px;
-
-    filter:
-      drop-shadow(0 12px 15px rgba(0, 0, 0, 0.7))
-      drop-shadow(0 0 18px rgba(255, 20, 60, 0.12))
-      drop-shadow(0 0 22px rgba(170, 255, 0, 0.08));
-  }
-
-  .brand-name {
-    transform: scaleX(1.15) perspective(900px) rotateX(7deg);
-  }
-
-  .logo-wrap {
-    max-width: 100%;
-  }
-
-  .hero::before {
-    width: 100vw;
-    height: 100vw;
-
-    left: 50%;
-    top: 25%;
-  }
-
-  .hero::after {
-    width: 90vw;
-    height: 90vw;
-
-    right: -25%;
-    bottom: -10%;
+}
+/* Custom can cursor - desktop only */
+@media (min-width: 641px) {
+  html,
+  body,
+  html *,
+  body * {
+    cursor: none !important;
   }
 }

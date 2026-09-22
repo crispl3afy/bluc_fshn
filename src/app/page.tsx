@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({
@@ -9,17 +8,42 @@ export default function Home() {
     y: 50,
   });
 
+  const [cursorPosition, setCursorPosition] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  useEffect(() => {
+    document.documentElement.style.cursor="none";
+    document.body.style.cursor="none";
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+
+      setCursorPosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.documentElement.style.cursor="";
+      document.body.style.cursor="";
+    };
+  }, []);
+
   return (
     <main
       id="top"
       className="min-h-screen overflow-x-hidden bg-[#050505] text-[#f5f5f0]"
-      onMouseMove={(e) =>
-        setMousePosition({
-          x: (e.clientX / window.innerWidth) * 100,
-          y: (e.clientY / window.innerHeight) * 100,
-        })
-      }
     >
+      {/* Cursor-following background */}
       <div
         className="pointer-events-none fixed inset-0 z-0 transition-[background] duration-300"
         style={{
@@ -38,6 +62,30 @@ export default function Home() {
         }}
       />
 
+      {/* CUSTOM CAN CURSOR */}
+<div
+  style={{
+    position: "fixed",
+    left: cursorPosition.x,
+    top: cursorPosition.y,
+    width: "80px",
+    height: "80px",
+    zIndex: 99999,
+    pointerEvents: "none",
+    transform: "translate(-50%, -50%)",
+  }}
+>
+  <img
+    src="/can.cursor.png"
+    alt=""
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "contain",
+    }}
+  />
+</div>
+
       {/* HERO */}
       <section className="hero relative min-h-screen overflow-hidden p-5 sm:p-6 md:p-10">
         {/* Top navigation */}
@@ -51,10 +99,10 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Main logo */}
+        {/* Bee */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src="/bee.logo.png"
+            src="/bee.boy.png"
             alt="BLUC FSHN bee character"
             className="hero-bee"
             style={{
@@ -225,7 +273,6 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-5 text-xs text-zinc-400">
-            {/* Instagram */}
             <a
               href="https://www.instagram.com/bluc_fshn/"
               target="_blank"
@@ -261,7 +308,6 @@ export default function Home() {
               </span>
             </a>
 
-            {/* TikTok */}
             <a
               href="https://www.tiktok.com/@blucfshn"
               target="_blank"
@@ -287,7 +333,6 @@ export default function Home() {
               </span>
             </a>
 
-            {/* Contact */}
             <a
               href="#"
               className="flex items-center gap-3 transition-colors hover:text-white"
@@ -315,4 +360,3 @@ export default function Home() {
     </main>
   );
 }
-
