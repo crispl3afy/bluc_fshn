@@ -13,9 +13,13 @@ export default function Home() {
     y: 0,
   });
 
+  const [showMoneyLaundering, setShowMoneyLaundering] = useState(false);
+  const [jacketPhoto, setJacketPhoto] = useState(0);
+  const [jeansPhoto, setJeansPhoto] = useState(0);
+
   useEffect(() => {
-    document.documentElement.style.cursor="none";
-    document.body.style.cursor="none";
+    document.documentElement.style.cursor = "none";
+    document.body.style.cursor = "none";
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
@@ -33,8 +37,8 @@ export default function Home() {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      document.documentElement.style.cursor="";
-      document.body.style.cursor="";
+      document.documentElement.style.cursor = "";
+      document.body.style.cursor = "";
     };
   }, []);
 
@@ -63,28 +67,28 @@ export default function Home() {
       />
 
       {/* CUSTOM CAN CURSOR */}
-<div
-  style={{
-    position: "fixed",
-    left: cursorPosition.x,
-    top: cursorPosition.y,
-    width: "80px",
-    height: "80px",
-    zIndex: 99999,
-    pointerEvents: "none",
-    transform: "translate(-50%, -50%)",
-  }}
->
-  <img
-    src="/can.cursor.png"
-    alt=""
-    style={{
-      width: "100%",
-      height: "100%",
-      objectFit: "contain",
-    }}
-  />
-</div>
+      <div
+        style={{
+          position: "fixed",
+          left: cursorPosition.x,
+          top: cursorPosition.y,
+          width: "80px",
+          height: "80px",
+          zIndex: 99999,
+          pointerEvents: "none",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <img
+          src="/can.cursor.png"
+          alt=""
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
 
       {/* HERO */}
       <section className="hero relative min-h-screen overflow-hidden p-5 sm:p-6 md:p-10">
@@ -154,109 +158,181 @@ export default function Home() {
           </p>
         </div>
 
-       {/* Money Laundering */}
-<div className="relative min-h-[65vh] overflow-hidden sm:min-h-[70vh]">
-  {/* Main clothing photo */}
-  <img
-    src="/jacket.moneylaundering.jpeg"
-    alt="BLUC FSHN Money Laundering jacket"
-    className="absolute inset-0 h-full w-full object-cover brightness-[0.85] transition-transform duration-1000 hover:scale-105"
-  />
+        {/* MONEY LAUNDERING */}
+        <div className="relative min-h-[65vh] overflow-hidden sm:min-h-[70vh]">
+          {/* Main clothing photo */}
+          <img
+            src="/jacket.moneylaundering.jpeg"
+            alt="BLUC FSHN Money Laundering jacket"
+            className="absolute inset-0 h-full w-full object-cover brightness-[0.85] transition-transform duration-1000 hover:scale-105"
+          />
 
-  {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black/30" />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/30" />
 
-  {/* Falling BLUC money */}
-<div className="money-rain pointer-events-none absolute inset-0 z-10">
-  <img src="/bluc-money.png" alt="" className="money-note money-note-1" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-2" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-3" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-4" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-5" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-6" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-7" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-8" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-9" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-10" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-11" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-12" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-13" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-14" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-15" />
-  <img src="/bluc-money.png" alt="" className="money-note money-note-16" />
-</div>
+          {/* Falling BLUC money */}
+          <div className="money-rain pointer-events-none absolute inset-0 z-10">
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-1"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-2"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-3"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-4"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-5"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-6"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-7"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-8"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-9"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-10"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-11"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-12"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-13"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-14"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-15"
+            />
+            <img
+              src="/bluc-money.png"
+              alt=""
+              className="money-note money-note-16"
+            />
+          </div>
 
-  {/* Soft colour effects */}
-  <div className="absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-red-500/10 blur-3xl sm:h-32 sm:w-32" />
+          {/* Soft colour effects */}
+          <div className="absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-red-500/10 blur-3xl sm:h-32 sm:w-32" />
 
-  <div className="absolute bottom-[10%] right-[15%] h-32 w-32 rounded-full bg-lime-400/10 blur-3xl sm:h-40 sm:w-40" />
+          <div className="absolute bottom-[10%] right-[15%] h-32 w-32 rounded-full bg-lime-400/10 blur-3xl sm:h-40 sm:w-40" />
 
-  {/* Collection information */}
-  <div className="relative z-20 flex min-h-[65vh] flex-col justify-between p-5 sm:min-h-[70vh] sm:p-6 md:p-10">
+          {/* Collection information */}
+          <div className="relative z-20 flex min-h-[65vh] flex-col justify-between p-5 sm:min-h-[70vh] sm:p-6 md:p-10">
+            <div className="flex justify-between gap-4 text-[10px] tracking-[0.15em] text-white/70 sm:text-xs sm:tracking-[0.2em]">
+              <span>DROP 01</span>
+              <span>BLUC / 001</span>
+            </div>
 
-    <div className="flex justify-between gap-4 text-[10px] tracking-[0.15em] text-white/70 sm:text-xs sm:tracking-[0.2em]">
-      <span>DROP 01</span>
-      <span>BLUC / 001</span>
-    </div>
+            <div>
+              <p className="mb-3 text-xs tracking-[0.2em] text-white/70 sm:text-sm sm:tracking-[0.25em]">
+                MONEY LAUNDERING
+              </p>
 
-    <div>
-      <p className="mb-3 text-xs tracking-[0.2em] text-white/70 sm:text-sm sm:tracking-[0.25em]">
-        MONEY LAUNDERING
-      </p>
+              <h3 className="text-5xl font-black uppercase tracking-[-0.03em] sm:text-6xl md:text-8xl">
+                MONEY
+                <br />
+                LAUNDERING.
+              </h3>
 
-      <h3 className="text-5xl font-black uppercase tracking-[-0.03em] sm:text-6xl md:text-8xl">
-        MONEY
-        <br />
-        LAUNDERING.
-      </h3>
-    </div>
-  </div>
-</div>
+              <button
+                type="button"
+                onClick={() => setShowMoneyLaundering(true)}
+                className="mt-6 inline-flex items-center gap-3 border border-white/30 px-5 py-3 text-[10px] tracking-[0.25em] transition-all duration-300 hover:bg-white hover:text-black sm:text-xs"
+              >
+                VIEW DROP
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
 
-{/* Money Laundering supporting images */}
-<div className="mt-5 grid gap-5 md:mt-6 md:grid-cols-2 md:gap-6">
+        {/* Money Laundering supporting images */}
+        <div className="mt-5 grid gap-5 md:mt-6 md:grid-cols-2 md:gap-6">
+          {/* Jeans */}
+          <div className="group relative min-h-[55vh] overflow-hidden sm:min-h-[65vh]">
+            <img
+              src="/jeans.moneylaundering.jpeg"
+              alt="BLUC FSHN Money Laundering jeans"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
 
-  <div className="group relative min-h-[55vh] overflow-hidden sm:min-h-[65vh]">
-    <img
-      src="/jeans.moneylaundering.jpeg"
-      alt="BLUC FSHN Money Laundering jeans"
-      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-    />
+            <div className="absolute inset-0 bg-black/15" />
 
-    <div className="absolute inset-0 bg-black/15" />
+            <div className="relative z-10 flex min-h-[55vh] flex-col justify-between p-5 sm:min-h-[65vh] sm:p-6 md:p-8">
+              <span className="text-[10px] tracking-[0.2em] text-white/70 sm:text-xs">
+                MONEY LAUNDERING / 02
+              </span>
 
-    <div className="relative z-10 flex min-h-[55vh] flex-col justify-between p-5 sm:min-h-[65vh] sm:p-6 md:p-8">
-      <span className="text-[10px] tracking-[0.2em] text-white/70 sm:text-xs">
-        MONEY LAUNDERING / 02
-      </span>
+              <h3 className="text-4xl font-black tracking-[-0.03em] sm:text-5xl md:text-6xl">
+                JEANS.
+              </h3>
+            </div>
+          </div>
 
-      <h3 className="text-4xl font-black tracking-[-0.03em] sm:text-5xl md:text-6xl">
-        JEANS.
-      </h3>
-    </div>
-  </div>
+          {/* Bikini */}
+          <div className="group relative min-h-[55vh] overflow-hidden sm:min-h-[65vh]">
+            <img
+              src="/bikini.moneylaundering.jpeg"
+              alt="BLUC FSHN Money Laundering bikini"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
 
-  <div className="group relative min-h-[55vh] overflow-hidden sm:min-h-[65vh]">
-    <img
-      src="/bikini.moneylaundering.jpeg"
-      alt="BLUC FSHN Money Laundering bikini"
-      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-    />
+            <div className="absolute inset-0 bg-black/15" />
 
-    <div className="absolute inset-0 bg-black/15" />
+            <div className="relative z-10 flex min-h-[55vh] flex-col justify-between p-5 sm:min-h-[65vh] sm:p-6 md:p-8">
+              <span className="text-[10px] tracking-[0.2em] text-white/70 sm:text-xs">
+                MONEY LAUNDERING / 03
+              </span>
 
-    <div className="relative z-10 flex min-h-[55vh] flex-col justify-between p-5 sm:min-h-[65vh] sm:p-6 md:p-8">
-      <span className="text-[10px] tracking-[0.2em] text-white/70 sm:text-xs">
-        MONEY LAUNDERING / 03
-      </span>
-
-      <h3 className="text-4xl font-black tracking-[-0.03em] sm:text-5xl md:text-6xl">
-        BIKINI.
-      </h3>
-    </div>
-  </div>
-
-</div>
+              <h3 className="text-4xl font-black tracking-[-0.03em] sm:text-5xl md:text-6xl">
+                BIKINI.
+              </h3>
+            </div>
+          </div>
+        </div>
 
         {/* More looks */}
         <div className="mt-5 grid gap-5 md:mt-6 md:grid-cols-2 md:gap-6">
@@ -304,6 +380,242 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* MONEY LAUNDERING GALLERY */}
+        {showMoneyLaundering && (
+          <div className="fixed inset-0 z-[99990] overflow-y-auto bg-[#050505]">
+            {/* Gallery header */}
+            <div className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-[#050505]/90 px-5 py-5 backdrop-blur-md sm:px-6 md:px-10">
+              <div>
+                <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
+                  BLUC FSHN / DROP 01
+                </p>
+
+                <h2 className="mt-1 text-lg font-bold tracking-[-0.02em] sm:text-xl">
+                  MONEY LAUNDERING
+                </h2>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setShowMoneyLaundering(false)}
+                className="flex h-10 w-10 items-center justify-center border border-white/20 text-lg transition-all duration-300 hover:bg-white hover:text-black"
+                aria-label="Close gallery"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 sm:py-14 md:px-10 md:py-20">
+              {/* JACKET */}
+              <div className="mb-20 sm:mb-28">
+                <div className="mb-5 flex items-end justify-between">
+                  <div>
+                    <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
+                      PIECE 01
+                    </p>
+
+                    <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
+                      Jacket
+                    </h3>
+                  </div>
+
+                  <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
+                    {jacketPhoto + 1} / 3
+                  </span>
+                </div>
+
+                <div className="relative overflow-hidden bg-zinc-900">
+                  <img
+                    src={
+                      [
+                        "/jacket.moneylaundering.jpeg",
+                        "/jacket.frontside.jpeg",
+                        "/jacket.backside.jpeg",
+                      ][jacketPhoto]
+                    }
+                    alt="BLUC FSHN Money Laundering jacket"
+                    className="h-auto max-h-[80vh] w-full object-contain"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setJacketPhoto((current) =>
+                        current === 0 ? 2 : current - 1
+                      )
+                    }
+                    className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:left-5"
+                    aria-label="Previous jacket photo"
+                  >
+                    ←
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setJacketPhoto((current) =>
+                        current === 2 ? 0 : current + 1
+                      )
+                    }
+                    className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:right-5"
+                    aria-label="Next jacket photo"
+                  >
+                    →
+                  </button>
+                </div>
+
+                <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
+                  {[
+                    "/jacket.moneylaundering.jpeg",
+                    "/jacket.frontside.jpeg",
+                    "/jacket.backside.jpeg",
+                  ].map((photo, index) => (
+                    <button
+                      key={photo}
+                      type="button"
+                      onClick={() => setJacketPhoto(index)}
+                      className={`overflow-hidden border transition-all duration-300 ${
+                        jacketPhoto === index
+                          ? "border-white"
+                          : "border-white/10 opacity-50 hover:opacity-100"
+                      }`}
+                    >
+                      <img
+                        src={photo}
+                        alt={`Jacket view ${index + 1}`}
+                        className="aspect-[4/5] w-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+
+                <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
+                  Money Laundering jacket from BLUC FSHN Drop 01.
+                </p>
+              </div>
+
+              {/* JEANS */}
+              <div className="mb-20 sm:mb-28">
+                <div className="mb-5 flex items-end justify-between">
+                  <div>
+                    <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
+                      PIECE 02
+                    </p>
+
+                    <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
+                      Jeans
+                    </h3>
+                  </div>
+
+                  <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
+                    {jeansPhoto + 1} / 3
+                  </span>
+                </div>
+
+                <div className="relative overflow-hidden bg-zinc-900">
+                  <img
+                    src={
+                      [
+                        "/jeans.moneylaundering.jpeg",
+                        "/jeans.backside.jpeg",
+                        "/jeans.pockets.jpeg",
+                      ][jeansPhoto]
+                    }
+                    alt="BLUC FSHN Money Laundering jeans"
+                    className="h-auto max-h-[80vh] w-full object-contain"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setJeansPhoto((current) =>
+                        current === 0 ? 2 : current - 1
+                      )
+                    }
+                    className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:left-5"
+                    aria-label="Previous jeans photo"
+                  >
+                    ←
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setJeansPhoto((current) =>
+                        current === 2 ? 0 : current + 1
+                      )
+                    }
+                    className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:right-5"
+                    aria-label="Next jeans photo"
+                  >
+                    →
+                  </button>
+                </div>
+
+                <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
+                  {[
+                    "/jeans.moneylaundering.jpeg",
+                    "/jeans.backside.jpeg",
+                    "/jeans.pockets.jpeg",
+                  ].map((photo, index) => (
+                    <button
+                      key={photo}
+                      type="button"
+                      onClick={() => setJeansPhoto(index)}
+                      className={`overflow-hidden border transition-all duration-300 ${
+                        jeansPhoto === index
+                          ? "border-white"
+                          : "border-white/10 opacity-50 hover:opacity-100"
+                      }`}
+                    >
+                      <img
+                        src={photo}
+                        alt={`Jeans view ${index + 1}`}
+                        className="aspect-[4/5] w-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+
+                <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
+                  Money Laundering jeans from BLUC FSHN Drop 01.
+                </p>
+              </div>
+
+              {/* BIKINI */}
+              <div>
+                <div className="mb-5 flex items-end justify-between">
+                  <div>
+                    <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
+                      PIECE 03
+                    </p>
+
+                    <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
+                      Bikini
+                    </h3>
+                  </div>
+
+                  <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
+                    01 / 01
+                  </span>
+                </div>
+
+                <div className="overflow-hidden bg-zinc-900">
+                  <img
+                    src="/bikini.moneylaundering.jpeg"
+                    alt="BLUC FSHN Money Laundering bikini"
+                    className="h-auto max-h-[80vh] w-full object-contain"
+                  />
+                </div>
+
+                <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
+                  Money Laundering bikini from BLUC FSHN Drop 01.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* BRAND STATEMENT */}
@@ -316,7 +628,7 @@ export default function Home() {
           <h2 className="max-w-5xl text-[11vw] font-black leading-[0.95] tracking-[-0.04em] sm:text-5xl md:text-8xl">
             BUILT FOR THE ONES
             <br />
-            WHO DON'T FOLLOW.
+            WHO DON&apos;T FOLLOW.
           </h2>
 
           <div className="mt-10 flex justify-end sm:mt-12">
