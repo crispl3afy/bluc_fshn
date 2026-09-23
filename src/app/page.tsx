@@ -418,6 +418,10 @@ export default function Home() {
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
                       YELLOW JACKET
                     </h3>
+                   
+<p className="mt-2 text-sm tracking-[0.15em] text-white/60">
+  KSh 7,500
+</p>
                   </div>
 
                   <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
@@ -506,6 +510,9 @@ export default function Home() {
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
                       WALKING ON WINGS PANTS
                     </h3>
+                    <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
+  KSh 4,000
+</p>
                   </div>
 
                   <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
@@ -594,6 +601,9 @@ export default function Home() {
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
                       LADY MONEY BIKINI SET
                     </h3>
+                    <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
+  KSh 1,500
+</p>
                   </div>
 
                   <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
