@@ -347,7 +347,7 @@ export default function Home() {
                       ][jacketPhoto]
                     }
                     alt="BLUC FSHN Money Laundering jacket"
-                    className="h-max-h-[80vh] w-full object-cover"
+                    className="h-auto max-h-[80vh] w-full object-contain"
                   />
 
                   <button
@@ -438,9 +438,8 @@ export default function Home() {
                       ][jeansPhoto]
                     }
                     alt="BLUC FSHN Money Laundering jeans"
-                    className="h-[80vh] w-full object-cover"
+                    className="h-auto max-h-[80vh] w-full object-contain"
                   />
-
                   <button
                     type="button"
                     onClick={() =>
@@ -523,7 +522,7 @@ export default function Home() {
                   <img
                     src="/bikini.moneylaundering.jpeg"
                     alt="BLUC FSHN Money Laundering bikini"
-                    className="h-[80vh] w-full object-cover"
+                    className="h-auto max-h-[80vh] w-full object-contain"
                   />
                 </div>
 
