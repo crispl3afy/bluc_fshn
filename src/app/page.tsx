@@ -418,8 +418,7 @@ export default function Home() {
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
                       YELLOW JACKET
                     </h3>
-                   
-<p className="mt-2 text-sm tracking-[0.15em] text-white/60">
+                    <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
   KSh 7,500
 </p>
                   </div>
@@ -511,7 +510,7 @@ export default function Home() {
                       WALKING ON WINGS PANTS
                     </h3>
                     <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
-  KSh 4,000
+  KSh 4000
 </p>
                   </div>
 
