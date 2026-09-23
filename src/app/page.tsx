@@ -154,37 +154,109 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Look 01 */}
-        <div className="relative min-h-[55vh] overflow-hidden sm:min-h-[60vh]">
-          <img
-            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85"
-            alt="Fashion editorial"
-            className="absolute inset-0 h-full w-full scale-105 object-cover brightness-[0.85] transition-transform duration-1000 hover:scale-100"
-          />
+       {/* Money Laundering */}
+<div className="relative min-h-[65vh] overflow-hidden sm:min-h-[70vh]">
+  {/* Main clothing photo */}
+  <img
+    src="/jacket.moneylaundering.jpeg"
+    alt="BLUC FSHN Money Laundering jacket"
+    className="absolute inset-0 h-full w-full object-cover brightness-[0.85] transition-transform duration-1000 hover:scale-105"
+  />
 
-          <div className="absolute inset-0 bg-black/40" />
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/30" />
 
-          <div className="absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-red-500/10 blur-3xl sm:h-32 sm:w-32" />
+  {/* Falling BLUC money */}
+<div className="money-rain pointer-events-none absolute inset-0 z-10">
+  <img src="/bluc-money.png" alt="" className="money-note money-note-1" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-2" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-3" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-4" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-5" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-6" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-7" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-8" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-9" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-10" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-11" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-12" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-13" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-14" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-15" />
+  <img src="/bluc-money.png" alt="" className="money-note money-note-16" />
+</div>
 
-          <div className="absolute bottom-[10%] right-[15%] h-32 w-32 rounded-full bg-lime-400/10 blur-3xl sm:h-40 sm:w-40" />
+  {/* Soft colour effects */}
+  <div className="absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-red-500/10 blur-3xl sm:h-32 sm:w-32" />
 
-          <div className="relative z-10 flex min-h-[55vh] flex-col justify-between p-5 sm:min-h-[60vh] sm:p-6 md:p-10">
-            <div className="flex justify-between gap-4 text-[10px] tracking-[0.15em] text-white/70 sm:text-xs sm:tracking-[0.2em]">
-              <span>LOOK 01</span>
-              <span>NAIROBI</span>
-            </div>
+  <div className="absolute bottom-[10%] right-[15%] h-32 w-32 rounded-full bg-lime-400/10 blur-3xl sm:h-40 sm:w-40" />
 
-            <div>
-              <p className="mb-3 text-xs tracking-[0.2em] text-white/70 sm:text-sm sm:tracking-[0.25em]">
-                THE NEW STANDARD
-              </p>
+  {/* Collection information */}
+  <div className="relative z-20 flex min-h-[65vh] flex-col justify-between p-5 sm:min-h-[70vh] sm:p-6 md:p-10">
 
-              <h3 className="text-5xl font-black tracking-[-0.03em] sm:text-6xl md:text-8xl">
-                GET FLY.
-              </h3>
-            </div>
-          </div>
-        </div>
+    <div className="flex justify-between gap-4 text-[10px] tracking-[0.15em] text-white/70 sm:text-xs sm:tracking-[0.2em]">
+      <span>DROP 01</span>
+      <span>BLUC / 001</span>
+    </div>
+
+    <div>
+      <p className="mb-3 text-xs tracking-[0.2em] text-white/70 sm:text-sm sm:tracking-[0.25em]">
+        MONEY LAUNDERING
+      </p>
+
+      <h3 className="text-5xl font-black uppercase tracking-[-0.03em] sm:text-6xl md:text-8xl">
+        MONEY
+        <br />
+        LAUNDERING.
+      </h3>
+    </div>
+  </div>
+</div>
+
+{/* Money Laundering supporting images */}
+<div className="mt-5 grid gap-5 md:mt-6 md:grid-cols-2 md:gap-6">
+
+  <div className="group relative min-h-[55vh] overflow-hidden sm:min-h-[65vh]">
+    <img
+      src="/jeans.moneylaundering.jpeg"
+      alt="BLUC FSHN Money Laundering jeans"
+      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+
+    <div className="absolute inset-0 bg-black/15" />
+
+    <div className="relative z-10 flex min-h-[55vh] flex-col justify-between p-5 sm:min-h-[65vh] sm:p-6 md:p-8">
+      <span className="text-[10px] tracking-[0.2em] text-white/70 sm:text-xs">
+        MONEY LAUNDERING / 02
+      </span>
+
+      <h3 className="text-4xl font-black tracking-[-0.03em] sm:text-5xl md:text-6xl">
+        JEANS.
+      </h3>
+    </div>
+  </div>
+
+  <div className="group relative min-h-[55vh] overflow-hidden sm:min-h-[65vh]">
+    <img
+      src="/bikini.moneylaundering.jpeg"
+      alt="BLUC FSHN Money Laundering bikini"
+      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+
+    <div className="absolute inset-0 bg-black/15" />
+
+    <div className="relative z-10 flex min-h-[55vh] flex-col justify-between p-5 sm:min-h-[65vh] sm:p-6 md:p-8">
+      <span className="text-[10px] tracking-[0.2em] text-white/70 sm:text-xs">
+        MONEY LAUNDERING / 03
+      </span>
+
+      <h3 className="text-4xl font-black tracking-[-0.03em] sm:text-5xl md:text-6xl">
+        BIKINI.
+      </h3>
+    </div>
+  </div>
+
+</div>
 
         {/* More looks */}
         <div className="mt-5 grid gap-5 md:mt-6 md:grid-cols-2 md:gap-6">

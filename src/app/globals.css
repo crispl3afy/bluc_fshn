@@ -379,3 +379,176 @@ body * {
     cursor: none !important;
   }
 }
+/*bulc money rain*/
+.money-rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.money-note {
+  position: absolute;
+  top: -15%;
+  width: 70px;
+  height: auto;
+  opacity: 0.9;
+  object-fit: contain;
+  will-change: transform;
+  animation-name: money-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Different positions, sizes and speeds */
+
+.money-note-1 {
+  left: 5%;
+  width: 65px;
+  animation-duration: 7s;
+  animation-delay: -2s;
+}
+
+.money-note-2 {
+  left: 17%;
+  width: 50px;
+  animation-duration: 9s;
+  animation-delay: -5s;
+}
+
+.money-note-3 {
+  left: 31%;
+  width: 75px;
+  animation-duration: 8s;
+  animation-delay: -1s;
+}
+
+.money-note-4 {
+  left: 46%;
+  width: 55px;
+  animation-duration: 10s;
+  animation-delay: -7s;
+}
+
+.money-note-5 {
+  left: 61%;
+  width: 70px;
+  animation-duration: 7.5s;
+  animation-delay: -4s;
+}
+
+.money-note-6 {
+  left: 74%;
+  width: 48px;
+  animation-duration: 9.5s;
+  animation-delay: -6s;
+}
+
+.money-note-7 {
+  left: 86%;
+  width: 65px;
+  animation-duration: 8.5s;
+  animation-delay: -3s;
+}
+
+.money-note-8 {
+  left: 94%;
+  width: 45px;
+  animation-duration: 11s;
+  animation-delay: -8s;
+}
+
+.money-note-9 {
+  left: 11%;
+  width: 55px;
+  animation-duration: 6.5s;
+  animation-delay: -4s;
+}
+
+.money-note-10 {
+  left: 24%;
+  width: 68px;
+  animation-duration: 8.5s;
+  animation-delay: -7s;
+}
+
+.money-note-11 {
+  left: 38%;
+  width: 45px;
+  animation-duration: 7s;
+  animation-delay: -3s;
+}
+
+.money-note-12 {
+  left: 53%;
+  width: 62px;
+  animation-duration: 9s;
+  animation-delay: -6s;
+}
+
+.money-note-13 {
+  left: 67%;
+  width: 52px;
+  animation-duration: 6.8s;
+  animation-delay: -5s;
+}
+
+.money-note-14 {
+  left: 80%;
+  width: 72px;
+  animation-duration: 8s;
+  animation-delay: -2s;
+}
+
+.money-note-15 {
+  left: 90%;
+  width: 50px;
+  animation-duration: 7.5s;
+  animation-delay: -7s;
+}
+
+.money-note-16 {
+  left: 3%;
+  width: 42px;
+  animation-duration: 10s;
+  animation-delay: -9s;
+}
+
+@keyframes money-fall {
+  0% {
+    transform: translate3d(0, -15vh, 0) rotate(-15deg);
+  }
+
+  25% {
+    transform: translate3d(4vw, 25vh, 0) rotate(70deg);
+  }
+
+  50% {
+    transform: translate3d(-3vw, 55vh, 0) rotate(170deg);
+  }
+
+  75% {
+    transform: translate3d(5vw, 85vh, 0) rotate(260deg);
+  }
+
+  100% {
+    transform: translate3d(-2vw, 120vh, 0) rotate(360deg);
+  }
+}
+
+/* Smaller notes on phones */
+
+@media (max-width: 640px) {
+  .money-note {
+    width: 42px;
+  }
+
+  .money-note-1,
+  .money-note-5 {
+    width: 45px;
+  }
+
+  .money-note-3,
+  .money-note-7 {
+    width: 48px;
+  }
+}
