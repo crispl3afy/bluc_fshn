@@ -347,7 +347,7 @@ export default function Home() {
                       ][jacketPhoto]
                     }
                     alt="BLUC FSHN Money Laundering jacket"
-                    className="h-auto max-h-[80vh] w-full object-contain"
+                    className="h-max-h-[80vh] w-full object-cover"
                   />
 
                   <button
@@ -438,7 +438,7 @@ export default function Home() {
                       ][jeansPhoto]
                     }
                     alt="BLUC FSHN Money Laundering jeans"
-                    className="h-auto max-h-[80vh] w-full object-contain"
+                    className="h-[80vh] w-full object-cover"
                   />
 
                   <button
@@ -523,7 +523,7 @@ export default function Home() {
                   <img
                     src="/bikini.moneylaundering.jpeg"
                     alt="BLUC FSHN Money Laundering bikini"
-                    className="h-auto max-h-[80vh] w-full object-contain"
+                    className="h-[80vh] w-full object-cover"
                   />
                 </div>
 
