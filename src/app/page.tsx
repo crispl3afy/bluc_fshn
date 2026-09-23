@@ -416,7 +416,7 @@ export default function Home() {
                     </p>
 
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
-                      Jacket
+                      YELLOW JACKET
                     </h3>
                   </div>
 
@@ -504,7 +504,7 @@ export default function Home() {
                     </p>
 
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
-                      Jeans
+                      WALKING ON WINGS PANTS
                     </h3>
                   </div>
 
@@ -592,7 +592,7 @@ export default function Home() {
                     </p>
 
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
-                      Bikini
+                      LADY MONEY BIKINI SET
                     </h3>
                   </div>
 
