@@ -16,7 +16,7 @@ export default function Home() {
   const [showMoneyLaundering, setShowMoneyLaundering] = useState(false);
   const [jacketPhoto, setJacketPhoto] = useState(0);
   const [jeansPhoto, setJeansPhoto] = useState(0);
-
+  const [showMenu, setShowMenu] = useState(false);
   useEffect(() => {
     document.documentElement.style.cursor = "none";
     document.body.style.cursor = "none";
@@ -134,6 +134,53 @@ export default function Home() {
   </p>
 
 </div>
+ {/* Mobile menu button */}
+  <button
+    type="button"
+    onClick={() => setShowMenu(!showMenu)}
+    className="justify-self-end text-[10px] tracking-[0.22em] md:hidden"
+  >
+    {showMenu ? "CLOSE" : "MENU"}
+  </button>
+
+  {/* Location */}
+  <p className="col-start-3 row-start-1 hidden justify-self-end text-right text-[10px] tracking-[0.2em] sm:text-sm sm:tracking-[0.35em] md:block">
+    NAIROBI, KENYA
+  </p>
+
+</div>
+
+{/* MOBILE MENU */}
+{showMenu && (
+  <div className="relative z-20 mt-8 flex flex-col items-end gap-5 text-right md:hidden">
+
+    <a
+      href="#collection"
+      onClick={() => setShowMenu(false)}
+      className="text-xs tracking-[0.25em]"
+    >
+      COLLECTION
+    </a>
+
+    <a
+      href="#about"
+      onClick={() => setShowMenu(false)}
+      className="text-xs tracking-[0.25em]"
+    >
+      ABOUT
+    </a>
+
+    <a
+      href="#contact"
+      onClick={() => setShowMenu(false)}
+      className="text-xs tracking-[0.25em]"
+    >
+      CONTACT
+    </a>
+
+  </div>
+)}
+
         {/* Bee */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
@@ -567,7 +614,7 @@ export default function Home() {
       </section>
 
       {/* BRAND STATEMENT */}
-      <section className="px-5 py-24 sm:px-6 sm:py-32 md:px-10 md:py-48">
+      <section id="about" className="px-5 py-24 sm:px-6 sm:py-32 md:px-10 md:py-48">
         <div className="mx-auto max-w-6xl">
           <p className="mb-8 text-[10px] tracking-[0.25em] text-zinc-500 sm:text-xs sm:tracking-[0.3em]">
             BLUC FSHN / NAIROBI
@@ -589,7 +636,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 px-5 py-10 sm:px-6 sm:py-12 md:px-10 md:py-16">
+      <footer id="contact" className="border-t border-white/10 px-5 py-10 sm:px-6 sm:py-12 md:px-10 md:py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
             <a
