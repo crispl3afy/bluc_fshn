@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -14,9 +15,10 @@ export default function Home() {
   });
 
   const [showMoneyLaundering, setShowMoneyLaundering] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const [jacketPhoto, setJacketPhoto] = useState(0);
   const [jeansPhoto, setJeansPhoto] = useState(0);
-  const [showMenu, setShowMenu] = useState(false);
+
   useEffect(() => {
     document.documentElement.style.cursor = "none";
     document.body.style.cursor = "none";
@@ -47,7 +49,7 @@ export default function Home() {
       id="top"
       className="min-h-screen overflow-x-hidden bg-[#050505] text-[#f5f5f0]"
     >
-      {/* Cursor-following background */}
+      {/* CURSOR-FOLLOWING BACKGROUND */}
       <div
         className="pointer-events-none fixed inset-0 z-0 transition-[background] duration-300"
         style={{
@@ -58,7 +60,9 @@ export default function Home() {
               transparent 65%
             ),
             radial-gradient(
-              circle 30vw at ${100 - mousePosition.x}% ${100 - mousePosition.y}%,
+              circle 30vw at ${100 - mousePosition.x}% ${
+            100 - mousePosition.y
+          }%,
               rgba(170, 255, 0, 0.10),
               transparent 65%
             )
@@ -66,122 +70,113 @@ export default function Home() {
         }}
       />
 
-      {/* CUSTOM CAN CURSOR */}
-      <div
-        style={{
-          position: "fixed",
-          left: cursorPosition.x,
-          top: cursorPosition.y,
-          width: "80px",
-          height: "80px",
-          zIndex: 99999,
-          pointerEvents: "none",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <img
-          src="/can.cursor.png"
-          alt=""
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-          }}
-        />
-      </div>
+    {/* CUSTOM CAN CURSOR — DESKTOP ONLY */}
+<div
+  className="hidden md:block"
+  style={{
+    position: "fixed",
+    left: cursorPosition.x,
+    top: cursorPosition.y,
+    width: "80px",
+    height: "80px",
+    zIndex: 99999,
+    pointerEvents: "none",
+    transform: "translate(-50%, -50%)",
+  }}
+>
+  <img
+    src="/can.cursor.png"
+    alt=""
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "contain",
+    }}
+  />
+</div>
 
       {/* HERO */}
       <section className="hero relative min-h-screen overflow-hidden p-5 sm:p-6 md:p-10">
-   
-       {/* TOP NAVIGATION */}
-<div className="relative z-10 grid grid-cols-[1fr_auto_1fr] items-start">
+        {/* TOP NAVIGATION */}
+        <div className="relative z-20 grid grid-cols-[1fr_auto_1fr] items-start">
+          {/* BRAND */}
+          <a
+            href="#top"
+            onClick={() => setShowMenu(false)}
+            className="justify-self-start text-xs font-medium tracking-[0.2em] transition-opacity duration-300 hover:opacity-50 sm:text-sm sm:tracking-[0.25em]"
+          >
+            BLUC FSHN
+          </a>
 
-  {/* Brand */}
-  <a
-    href="#top"
-    className="justify-self-start text-xs font-medium tracking-[0.2em] transition-opacity duration-300 hover:opacity-50 sm:text-sm sm:tracking-[0.25em]"
-  >
-    BLUC FSHN
-  </a>
+          {/* DESKTOP NAVIGATION */}
+          <nav className="hidden items-center gap-7 md:flex">
+            <a
+              href="#collection"
+              className="text-[10px] tracking-[0.22em] transition-opacity duration-300 hover:opacity-50"
+            >
+              COLLECTION
+            </a>
 
-  {/* Desktop navigation */}
-  <nav className="hidden items-center gap-7 md:flex">
-    <a
-      href="#collection"
-      className="text-[10px] tracking-[0.22em] transition-opacity duration-300 hover:opacity-50"
-    >
-      COLLECTION
-    </a>
+            <a
+              href="#about"
+              className="text-[10px] tracking-[0.22em] transition-opacity duration-300 hover:opacity-50"
+            >
+              ABOUT
+            </a>
 
-    <a
-      href="#about"
-      className="text-[10px] tracking-[0.22em] transition-opacity duration-300 hover:opacity-50"
-    >
-      ABOUT
-    </a>
+            <a
+              href="#contact"
+              className="text-[10px] tracking-[0.22em] transition-opacity duration-300 hover:opacity-50"
+            >
+              CONTACT
+            </a>
+          </nav>
 
-    <a
-      href="#contact"
-      className="text-[10px] tracking-[0.22em] transition-opacity duration-300 hover:opacity-50"
-    >
-      CONTACT
-    </a>
-  </nav>
+          {/* MOBILE MENU BUTTON */}
+          <button
+            type="button"
+            onClick={() => setShowMenu(!showMenu)}
+            className="justify-self-end text-[10px] tracking-[0.22em] transition-opacity duration-300 hover:opacity-50 md:hidden"
+          >
+            {showMenu ? "CLOSE" : "MENU"}
+          </button>
 
-  {/* Location */}
-  <p className="justify-self-end text-right text-[10px] tracking-[0.2em] sm:text-sm sm:tracking-[0.35em]">
-    NAIROBI, KENYA
-  </p>
+          {/* LOCATION */}
+          <p className="col-start-3 row-start-1 hidden justify-self-end text-right text-[10px] tracking-[0.2em] sm:text-sm sm:tracking-[0.35em] md:block">
+            NAIROBI, KENYA
+          </p>
+        </div>
 
-</div>
- {/* Mobile menu button */}
-  <button
-    type="button"
-    onClick={() => setShowMenu(!showMenu)}
-    className="justify-self-end text-[10px] tracking-[0.22em] md:hidden"
-  >
-    {showMenu ? "CLOSE" : "MENU"}
-  </button>
+        {/* MOBILE MENU */}
+        {showMenu && (
+          <div className="relative z-20 mt-8 flex flex-col items-end gap-5 text-right md:hidden">
+            <a
+              href="#collection"
+              onClick={() => setShowMenu(false)}
+              className="text-xs tracking-[0.25em] transition-opacity duration-300 hover:opacity-50"
+            >
+              COLLECTION
+            </a>
 
-  {/* Location */}
-  <p className="col-start-3 row-start-1 hidden justify-self-end text-right text-[10px] tracking-[0.2em] sm:text-sm sm:tracking-[0.35em] md:block">
-    NAIROBI, KENYA
-  </p>
+            <a
+              href="#about"
+              onClick={() => setShowMenu(false)}
+              className="text-xs tracking-[0.25em] transition-opacity duration-300 hover:opacity-50"
+            >
+              ABOUT
+            </a>
 
-</div>
+            <a
+              href="#contact"
+              onClick={() => setShowMenu(false)}
+              className="text-xs tracking-[0.25em] transition-opacity duration-300 hover:opacity-50"
+            >
+              CONTACT
+            </a>
+          </div>
+        )}
 
-{/* MOBILE MENU */}
-{showMenu && (
-  <div className="relative z-20 mt-8 flex flex-col items-end gap-5 text-right md:hidden">
-
-    <a
-      href="#collection"
-      onClick={() => setShowMenu(false)}
-      className="text-xs tracking-[0.25em]"
-    >
-      COLLECTION
-    </a>
-
-    <a
-      href="#about"
-      onClick={() => setShowMenu(false)}
-      className="text-xs tracking-[0.25em]"
-    >
-      ABOUT
-    </a>
-
-    <a
-      href="#contact"
-      onClick={() => setShowMenu(false)}
-      className="text-xs tracking-[0.25em]"
-    >
-      CONTACT
-    </a>
-
-  </div>
-)}
-
-        {/* Bee */}
+        {/* BEE */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src="/bee.boy.png"
@@ -194,7 +189,7 @@ export default function Home() {
           />
         </div>
 
-        {/* Bottom information */}
+        {/* BOTTOM INFORMATION */}
         <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 sm:bottom-6 sm:left-6 sm:right-6 md:bottom-10 md:left-10 md:right-10">
           <div>
             <p className="text-2xl font-bold sm:text-3xl md:text-4xl">
@@ -238,106 +233,32 @@ export default function Home() {
 
         {/* MONEY LAUNDERING */}
         <div className="relative min-h-[65vh] overflow-hidden sm:min-h-[70vh]">
-          {/* Main clothing photo */}
           <img
             src="/jacket.moneylaundering.jpeg"
             alt="BLUC FSHN Money Laundering jacket"
             className="absolute inset-0 h-full w-full object-cover brightness-[0.85] transition-transform duration-1000 hover:scale-105"
           />
 
-          {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/30" />
 
-          {/* Falling BLUC money */}
+          {/* FALLING BLUC MONEY */}
           <div className="money-rain pointer-events-none absolute inset-0 z-10">
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-1"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-2"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-3"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-4"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-5"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-6"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-7"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-8"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-9"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-10"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-11"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-12"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-13"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-14"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-15"
-            />
-            <img
-              src="/bluc-money.png"
-              alt=""
-              className="money-note money-note-16"
-            />
+            {Array.from({ length: 16 }).map((_, index) => (
+              <img
+                key={index}
+                src="/bluc-money.png"
+                alt=""
+                className={`money-note money-note-${index + 1}`}
+              />
+            ))}
           </div>
 
-          {/* Soft colour effects */}
+          {/* SOFT COLOUR EFFECTS */}
           <div className="absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-red-500/10 blur-3xl sm:h-32 sm:w-32" />
 
           <div className="absolute bottom-[10%] right-[15%] h-32 w-32 rounded-full bg-lime-400/10 blur-3xl sm:h-40 sm:w-40" />
 
-          {/* Collection information */}
+          {/* COLLECTION INFORMATION */}
           <div className="relative z-20 flex min-h-[65vh] flex-col justify-between p-5 sm:min-h-[70vh] sm:p-6 md:p-10">
             <div className="flex justify-between gap-4 text-[10px] tracking-[0.15em] text-white/70 sm:text-xs sm:tracking-[0.2em]">
               <span>DROP 01</span>
@@ -367,11 +288,10 @@ export default function Home() {
           </div>
         </div>
 
-
         {/* MONEY LAUNDERING GALLERY */}
         {showMoneyLaundering && (
           <div className="fixed inset-0 z-[99990] overflow-y-auto bg-[#050505]">
-            {/* Gallery header */}
+            {/* GALLERY HEADER */}
             <div className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-[#050505]/90 px-5 py-5 backdrop-blur-md sm:px-6 md:px-10">
               <div>
                 <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
@@ -405,9 +325,10 @@ export default function Home() {
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
                       YELLOW JACKET
                     </h3>
+
                     <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
-  KSh 7,500
-</p>
+                      KSh 7,500
+                    </p>
                   </div>
 
                   <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
@@ -496,9 +417,10 @@ export default function Home() {
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
                       WALKING ON WINGS PANTS
                     </h3>
+
                     <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
-  KSh 4000
-</p>
+                      KSh 4,000
+                    </p>
                   </div>
 
                   <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
@@ -518,6 +440,7 @@ export default function Home() {
                     alt="BLUC FSHN Money Laundering jeans"
                     className="h-auto max-h-[80vh] w-full object-contain"
                   />
+
                   <button
                     type="button"
                     onClick={() =>
@@ -586,9 +509,10 @@ export default function Home() {
                     <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
                       LADY MONEY BIKINI SET
                     </h3>
+
                     <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
-  KSh 1,500
-</p>
+                      KSh 1,500
+                    </p>
                   </div>
 
                   <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
@@ -613,8 +537,11 @@ export default function Home() {
         )}
       </section>
 
-      {/* BRAND STATEMENT */}
-      <section id="about" className="px-5 py-24 sm:px-6 sm:py-32 md:px-10 md:py-48">
+      {/* ABOUT */}
+      <section
+        id="about"
+        className="px-5 py-24 sm:px-6 sm:py-32 md:px-10 md:py-48"
+      >
         <div className="mx-auto max-w-6xl">
           <p className="mb-8 text-[10px] tracking-[0.25em] text-zinc-500 sm:text-xs sm:tracking-[0.3em]">
             BLUC FSHN / NAIROBI
@@ -623,7 +550,7 @@ export default function Home() {
           <h2 className="max-w-5xl text-[11vw] font-black leading-[0.95] tracking-[-0.04em] sm:text-5xl md:text-8xl">
             BUILT FOR THE ONES
             <br />
-            WHO DON&apos;T FOLLOW.
+            WHO DON'T FOLLOW.
           </h2>
 
           <div className="mt-10 flex justify-end sm:mt-12">
@@ -635,8 +562,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer id="contact" className="border-t border-white/10 px-5 py-10 sm:px-6 sm:py-12 md:px-10 md:py-16">
+      {/* CONTACT / FOOTER */}
+      <footer
+        id="contact"
+        className="border-t border-white/10 px-5 py-10 sm:px-6 sm:py-12 md:px-10 md:py-16"
+      >
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
             <a
@@ -682,7 +612,6 @@ export default function Home() {
                 <span className="block text-[9px] tracking-[0.2em] text-zinc-600">
                   INSTAGRAM
                 </span>
-
                 <span className="tracking-[0.08em]">@bluc_fshn</span>
               </span>
             </a>
@@ -707,13 +636,12 @@ export default function Home() {
                 <span className="block text-[9px] tracking-[0.2em] text-zinc-600">
                   TIKTOK
                 </span>
-
                 <span className="tracking-[0.08em]">@blucfshn</span>
               </span>
             </a>
 
             <a
-              href="#"
+              href="#contact"
               className="flex items-center gap-3 transition-colors hover:text-white"
             >
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20">
@@ -724,7 +652,6 @@ export default function Home() {
                 <span className="block text-[9px] tracking-[0.2em] text-zinc-600">
                   CONTACT
                 </span>
-
                 <span className="tracking-[0.08em]">GET IN TOUCH</span>
               </span>
             </a>
@@ -739,3 +666,4 @@ export default function Home() {
     </main>
   );
 }
+
