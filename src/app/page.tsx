@@ -92,17 +92,48 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero relative min-h-screen overflow-hidden p-5 sm:p-6 md:p-10">
-        {/* Top navigation */}
-        <div className="relative z-10 flex items-start justify-between gap-4">
-          <p className="text-xs font-medium tracking-[0.2em] sm:text-sm sm:tracking-[0.25em]">
-            BLUC FSHN
-          </p>
+   
+        {/* TOP NAVIGATION */}
+<div className="relative z-10 flex items-start justify-between gap-6">
 
-          <p className="text-right text-[10px] tracking-[0.2em] sm:text-sm sm:tracking-[0.35em]">
-            NAIROBI, KENYA
-          </p>
-        </div>
+  {/* Brand */}
+  <a
+    href="#top"
+    className="shrink-0 text-xs font-medium tracking-[0.2em] transition-opacity duration-300 hover:opacity-50 sm:text-sm sm:tracking-[0.25em]"
+  >
+    BLUC FSHN
+  </a>
 
+  {/* Desktop navigation */}
+  <nav className="hidden items-center gap-8 md:flex">
+    <a
+      href="#collection"
+      className="text-[10px] tracking-[0.25em] transition-opacity duration-300 hover:opacity-50"
+    >
+      COLLECTION
+    </a>
+
+    <a
+      href="#about"
+      className="text-[10px] tracking-[0.25em] transition-opacity duration-300 hover:opacity-50"
+    >
+      ABOUT
+    </a>
+
+    <a
+      href="#contact"
+      className="text-[10px] tracking-[0.25em] transition-opacity duration-300 hover:opacity-50"
+    >
+      CONTACT
+    </a>
+  </nav>
+
+  {/* Location */}
+  <p className="shrink-0 text-right text-[10px] tracking-[0.2em] sm:text-sm sm:tracking-[0.35em]">
+    NAIROBI, KENYA
+  </p>
+
+</div>
         {/* Bee */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
