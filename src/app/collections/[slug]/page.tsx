@@ -250,57 +250,57 @@ export default function CollectionPage({
     <div className="grid gap-12 md:grid-cols-2">
       {collection.pieces.map((piece, index) => (
         <article key={piece.name} className="group">
-          {/* MAIN IMAGE */}
-          <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
-            <img
-              src={piece.images[0]}
-              alt={piece.name}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+  {/* CLOTHING NAME + PRICE */}
+  <div className="mb-5 flex items-start justify-between border-b border-white/10 pb-5">
+    <div>
+      <h2 className="text-lg font-bold uppercase tracking-[-0.02em] sm:text-xl">
+        {piece.name}
+      </h2>
 
-            <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/25" />
+      <p className="mt-2 text-[10px] tracking-[0.2em] text-zinc-500">
+        BLUC FSHN / NAIROBI
+      </p>
+    </div>
 
-            <div className="absolute left-5 top-5 flex w-[calc(100%-40px)] justify-between text-[9px] tracking-[0.2em] text-white/70 sm:left-6 sm:top-6 sm:w-[calc(100%-48px)]">
-              <span>0{index + 1}</span>
-              <span>{collection.drop}</span>
-            </div>
-          </div>
+    <p className="text-xs tracking-[0.15em]">
+      {piece.price}
+    </p>
+  </div>
 
-          {/* PIECE INFO */}
-          <div className="mt-5 flex items-start justify-between border-b border-white/10 pb-5">
-            <div>
-              <h2 className="text-lg font-bold uppercase tracking-[-0.02em] sm:text-xl">
-                {piece.name}
-              </h2>
+  {/* MAIN CLOTHING IMAGE */}
+  <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
+    <img
+      src={piece.images[0]}
+      alt={piece.name}
+      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
 
-              <p className="mt-2 text-[10px] tracking-[0.2em] text-zinc-500">
-                BLUC FSHN / NAIROBI
-              </p>
-            </div>
+    <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/25" />
 
-            <p className="text-xs tracking-[0.15em]">
-              {piece.price}
-            </p>
-          </div>
+    <div className="absolute left-5 top-5 flex w-[calc(100%-40px)] justify-between text-[9px] tracking-[0.2em] text-white/70 sm:left-6 sm:top-6 sm:w-[calc(100%-48px)]">
+      <span>0{index + 1}</span>
+      <span>{collection.drop}</span>
+    </div>
+  </div>
 
-          {/* EXTRA IMAGES */}
-          {piece.images.length > 1 && (
-            <div className="mt-4 grid grid-cols-2 gap-4">
-              {piece.images.slice(1).map((image, imageIndex) => (
-                <div
-                  key={image}
-                  className="aspect-square overflow-hidden bg-zinc-900"
-                >
-                  <img
-                    src={image}
-                    alt={`${piece.name} view ${imageIndex + 2}`}
-                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-        </article>
+  {/* ADDITIONAL CLOTHING IMAGES */}
+  {piece.images.length > 1 && (
+    <div className="mt-4 grid grid-cols-2 gap-4">
+      {piece.images.slice(1).map((image, imageIndex) => (
+        <div
+          key={image}
+          className="aspect-square overflow-hidden bg-zinc-900"
+        >
+          <img
+            src={image}
+            alt={`${piece.name} view ${imageIndex + 2}`}
+            className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </div>
+      ))}
+    </div>
+  )}
+</article>
       ))}
     </div>
   ) : (
