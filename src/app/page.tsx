@@ -227,11 +227,11 @@ export default function Home() {
           </div>
 
           <p className="hidden text-xs tracking-[0.25em] text-zinc-500 md:block">
-            SS23
+            SS26
           </p>
         </div>
 
-        {/* MONEY LAUNDERING */}
+        {/* MONEY LAUNDRY */}
         <div className="relative min-h-[65vh] overflow-hidden sm:min-h-[70vh]">
           <img
             src="/jacket.moneylaundering.jpeg"
@@ -267,13 +267,13 @@ export default function Home() {
 
             <div>
               <p className="mb-3 text-xs tracking-[0.2em] text-white/70 sm:text-sm sm:tracking-[0.25em]">
-                MONEY LAUNDERING
+                MONEY LAUNDRY
               </p>
 
               <h3 className="text-5xl font-black uppercase tracking-[-0.03em] sm:text-6xl md:text-8xl">
                 MONEY
                 <br />
-                LAUNDERING.
+                LAUNDRY.
               </h3>
 
               <button
@@ -288,7 +288,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* MONEY LAUNDERING GALLERY */}
+        {/* MONEY LAUNDRY GALLERY */}
         {showMoneyLaundering && (
           <div className="fixed inset-0 z-[99990] overflow-y-auto bg-[#050505]">
             {/* GALLERY HEADER */}
@@ -299,7 +299,7 @@ export default function Home() {
                 </p>
 
                 <h2 className="mt-1 text-lg font-bold tracking-[-0.02em] sm:text-xl">
-                  MONEY LAUNDERING
+                  MONEY LAUNDRY
                 </h2>
               </div>
 
@@ -494,7 +494,7 @@ export default function Home() {
                 </div>
 
                 <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
-                  Money Laundering jeans from BLUC FSHN Drop 01.
+                  Money Laundry jeans from BLUC FSHN Drop 01.
                 </p>
               </div>
 
@@ -529,7 +529,8 @@ export default function Home() {
                 </div>
 
                 <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
-                  Money Laundering bikini from BLUC FSHN Drop 01.
+                  Money Laundry
+                   bikini from BLUC FSHN Drop 01.
                 </p>
               </div>
             </div>
