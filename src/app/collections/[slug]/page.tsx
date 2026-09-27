@@ -1,6 +1,7 @@
 "use client";
 
 import { use, useEffect, useState } from "react";
+
 const collections: Record<
   string,
   {
@@ -67,65 +68,70 @@ const collections: Record<
   },
 };
 
-export default function CollectionPage({ 
-
+export default function CollectionPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = use(params);
 
-  const [currentPhotos, setCurrentPhotos] = useState<Record<number, number>>(
-    {}
-  );
+  const [cursorPosition, setCursorPosition] = useState({
+    x: 0,
+    y: 0,
+  });
 
-const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-
-useEffect(() => {
-  const handleMouseMove = (event: MouseEvent) => {
-    setCursorPosition({
-      x: event.clientX,
-      y: event.clientY,
-    });
-  };
-
-  window.addEventListener("mousemove", handleMouseMove);
-
-  return () => {
-    window.removeEventListener("mousemove", handleMouseMove);
-  };
-}, []);
+  const [currentPhotos, setCurrentPhotos] = useState<
+    Record<number, number>
+  >({});
 
   const [showMenu, setShowMenu] = useState(false);
+
+  // RED CAN CURSOR
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      setCursorPosition({
+        x: event.clientX,
+        y: event.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   const collection = collections[slug];
 
   if (!collection) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-5 text-center text-[#f5f5f0]">
+        {/* RED CAN CURSOR */}
         <div
-  className="hidden md:block"
-  style={{
-    position: "fixed",
-    left: cursorPosition.x,
-    top: cursorPosition.y,
-    width: "80px",
-    height: "80px",
-    zIndex: 99999,
-    pointerEvents: "none",
-    transform: "translate(-50%, -50%)",
-  }}
->
-  <img
-    src="/can.cursor.png"
-    alt=""
-    style={{
-      width: "100%",
-      height: "100%",
-      objectFit: "contain",
-    }}
-  />
-</div>
+          className="hidden md:block"
+          style={{
+            position: "fixed",
+            left: cursorPosition.x,
+            top: cursorPosition.y,
+            width: "80px",
+            height: "80px",
+            zIndex: 99999,
+            pointerEvents: "none",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <img
+            src="/can.cursor.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+            }}
+          />
+        </div>
+
         <p className="mb-4 text-[10px] tracking-[0.3em] text-zinc-500">
           BLUC FSHN
         </p>
@@ -169,6 +175,32 @@ useEffect(() => {
 
   return (
     <main className="min-h-screen bg-[#050505] text-[#f5f5f0]">
+
+      {/* RED CAN CURSOR */}
+      <div
+        className="hidden md:block"
+        style={{
+          position: "fixed",
+          left: cursorPosition.x,
+          top: cursorPosition.y,
+          width: "80px",
+          height: "80px",
+          zIndex: 99999,
+          pointerEvents: "none",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <img
+          src="/can.cursor.png"
+          alt=""
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
+
       {/* HEADER */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050505]/90 px-5 py-5 backdrop-blur-md sm:px-6 md:px-10">
         <div className="flex items-center justify-between">
@@ -307,7 +339,9 @@ useEffect(() => {
                     <>
                       <button
                         type="button"
-                        onClick={() => changePhoto(pieceIndex, -1)}
+                        onClick={() =>
+                          changePhoto(pieceIndex, -1)
+                        }
                         className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:left-5"
                         aria-label="Previous photo"
                       >
@@ -316,7 +350,9 @@ useEffect(() => {
 
                       <button
                         type="button"
-                        onClick={() => changePhoto(pieceIndex, 1)}
+                        onClick={() =>
+                          changePhoto(pieceIndex, 1)
+                        }
                         className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:right-5"
                         aria-label="Next photo"
                       >
@@ -347,7 +383,9 @@ useEffect(() => {
                       >
                         <img
                           src={image}
-                          alt={`${piece.name} view ${imageIndex + 1}`}
+                          alt={`${piece.name} view ${
+                            imageIndex + 1
+                          }`}
                           className="aspect-[4/5] w-full object-cover"
                         />
                       </button>
@@ -372,8 +410,8 @@ useEffect(() => {
               </h2>
 
               <p className="mx-auto mt-4 max-w-sm text-xs leading-6 text-zinc-600">
-                Collection pieces will be added here once the collection
-                details are available.
+                Collection pieces will be added here once the
+                collection details are available.
               </p>
             </div>
           </div>
@@ -409,4 +447,3 @@ useEffect(() => {
     </main>
   );
 }
-
