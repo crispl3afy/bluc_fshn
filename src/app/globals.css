@@ -552,3 +552,32 @@ body * {
     width: 48px;
   }
 }
+
+@keyframes moneyFall {
+  0% {
+    transform: translateY(-150px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(25vh) rotate(90deg);
+  }
+
+  50% {
+    transform: translateY(50vh) rotate(180deg);
+  }
+
+  75% {
+    transform: translateY(75vh) rotate(270deg);
+  }
+
+  100% {
+    transform: translateY(115vh) rotate(360deg);
+  }
+}
+
+.money-rain-piece {
+  animation-name: moneyFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+}

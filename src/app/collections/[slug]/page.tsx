@@ -46,27 +46,52 @@ const collections: Record<
     ],
   },
 
-  "drop 3": {
-    name: "drop 3",
+  guap: {
+    name: "GUAP",
     drop: "DROP 03",
-    description: "drop 3 collection from BLUC FSHN.",
+    description: "GUAP collection from BLUC FSHN.",
     pieces: [],
   },
 
   "drop-three": {
     name: "DROP THREE",
     drop: "DROP 02",
-    description: "BLUC FSHN collection.",
+    description: "The second BLUC FSHN collection.",
     pieces: [],
   },
 
   "drop-four": {
     name: "DROP FOUR",
     drop: "DROP 01",
-    description: "BLUC FSHN collection.",
+    description: "The first BLUC FSHN collection.",
     pieces: [],
   },
 };
+
+const moneyPieces = [
+  { left: "3%", delay: "0s", duration: "8s", size: "55px", rotate: "-15deg" },
+  { left: "9%", delay: "2s", duration: "10s", size: "70px", rotate: "20deg" },
+  { left: "16%", delay: "5s", duration: "9s", size: "45px", rotate: "-25deg" },
+  { left: "24%", delay: "1s", duration: "11s", size: "65px", rotate: "12deg" },
+  { left: "31%", delay: "4s", duration: "8s", size: "50px", rotate: "-18deg" },
+  { left: "38%", delay: "7s", duration: "10s", size: "75px", rotate: "25deg" },
+  { left: "45%", delay: "2.5s", duration: "9s", size: "48px", rotate: "-10deg" },
+  { left: "52%", delay: "6s", duration: "11s", size: "60px", rotate: "18deg" },
+  { left: "59%", delay: "0.5s", duration: "8s", size: "52px", rotate: "-22deg" },
+  { left: "66%", delay: "3s", duration: "10s", size: "72px", rotate: "15deg" },
+  { left: "73%", delay: "5.5s", duration: "9s", size: "46px", rotate: "-17deg" },
+  { left: "80%", delay: "1.5s", duration: "11s", size: "62px", rotate: "23deg" },
+  { left: "87%", delay: "4.5s", duration: "8s", size: "50px", rotate: "-12deg" },
+  { left: "94%", delay: "7.5s", duration: "10s", size: "68px", rotate: "19deg" },
+
+  { left: "6%", delay: "6.5s", duration: "12s", size: "42px", rotate: "14deg" },
+  { left: "19%", delay: "8s", duration: "9s", size: "58px", rotate: "-20deg" },
+  { left: "35%", delay: "9s", duration: "10s", size: "47px", rotate: "16deg" },
+  { left: "49%", delay: "8.5s", duration: "12s", size: "70px", rotate: "-14deg" },
+  { left: "63%", delay: "10s", duration: "9s", size: "44px", rotate: "21deg" },
+  { left: "77%", delay: "9.5s", duration: "11s", size: "57px", rotate: "-19deg" },
+  { left: "91%", delay: "11s", duration: "10s", size: "65px", rotate: "13deg" },
+];
 
 export default function CollectionPage({
   params,
@@ -75,18 +100,13 @@ export default function CollectionPage({
 }) {
   const { slug } = use(params);
 
+  const collection = collections[slug];
+
   const [cursorPosition, setCursorPosition] = useState({
     x: 0,
     y: 0,
   });
 
-  const [currentPhotos, setCurrentPhotos] = useState<
-    Record<number, number>
-  >({});
-
-  const [showMenu, setShowMenu] = useState(false);
-
-  // RED CAN CURSOR
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       setCursorPosition({
@@ -102,81 +122,58 @@ export default function CollectionPage({
     };
   }, []);
 
-  const collection = collections[slug];
-
   if (!collection) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-5 text-center text-[#f5f5f0]">
-        {/* RED CAN CURSOR */}
-        <div
-          className="hidden md:block"
-          style={{
-            position: "fixed",
-            left: cursorPosition.x,
-            top: cursorPosition.y,
-            width: "80px",
-            height: "80px",
-            zIndex: 99999,
-            pointerEvents: "none",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <img
-            src="/can.cursor.png"
-            alt=""
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-            }}
-          />
+      <main className="flex min-h-screen items-center justify-center bg-[#050505] px-6 text-[#f5f5f0]">
+        <div className="text-center">
+          <p className="mb-4 text-xs tracking-[0.3em] text-zinc-500">
+            BLUC FSHN
+          </p>
+
+          <h1 className="text-5xl font-black uppercase">
+            COLLECTION NOT FOUND
+          </h1>
+
+          <a
+            href="/collections"
+            className="mt-8 inline-block text-xs tracking-[0.2em] transition-opacity hover:opacity-50"
+          >
+            ← BACK TO COLLECTIONS
+          </a>
         </div>
-
-        <p className="mb-4 text-[10px] tracking-[0.3em] text-zinc-500">
-          BLUC FSHN
-        </p>
-
-        <h1 className="text-5xl font-black uppercase tracking-[-0.04em]">
-          COLLECTION NOT FOUND
-        </h1>
-
-        <a
-          href="/collections"
-          className="mt-8 border border-white/30 px-5 py-3 text-[10px] tracking-[0.25em] transition-all hover:bg-white hover:text-black"
-        >
-          BACK TO COLLECTIONS
-        </a>
       </main>
     );
   }
 
-  const changePhoto = (pieceIndex: number, direction: number) => {
-    const piece = collection.pieces[pieceIndex];
-
-    if (!piece) return;
-
-    const current = currentPhotos[pieceIndex] ?? 0;
-
-    let next = current + direction;
-
-    if (next < 0) {
-      next = piece.images.length - 1;
-    }
-
-    if (next >= piece.images.length) {
-      next = 0;
-    }
-
-    setCurrentPhotos((previous) => ({
-      ...previous,
-      [pieceIndex]: next,
-    }));
-  };
+  const isMoneyLaundry = slug === "money-laundering";
 
   return (
-    <main className="min-h-screen bg-[#050505] text-[#f5f5f0]">
+    <main className="relative min-h-screen overflow-hidden bg-[#050505] px-5 py-8 text-[#f5f5f0] sm:px-6 md:px-10 md:py-10">
+      {/* MONEY RAIN */}
+      {isMoneyLaundry && (
+        <div
+          className="pointer-events-none fixed inset-0 z-10 overflow-hidden"
+          aria-hidden="true"
+        >
+          {moneyPieces.map((money, index) => (
+            <img
+              key={index}
+              src="/bluc-money.png"
+              alt=""
+             className="money-rain-piece absolute top-[-120px] opacity-80"
+              style={{
+                left: money.left,
+                width: money.size,
+                height: "auto",
+                animation: `moneyFall ${money.duration} linear ${money.delay} infinite`,
+                "--money-rotate": money.rotate,
+              } as React.CSSProperties}
+            />
+          ))}
+        </div>
+      )}
 
-      {/* RED CAN CURSOR */}
+      {/* CUSTOM CAN CURSOR */}
       <div
         className="hidden md:block"
         style={{
@@ -201,244 +198,143 @@ export default function CollectionPage({
         />
       </div>
 
+      
+
       {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050505]/90 px-5 py-5 backdrop-blur-md sm:px-6 md:px-10">
-        <div className="flex items-center justify-between">
-          <a
-            href="/"
-            className="text-xs font-medium tracking-[0.2em] transition-opacity hover:opacity-50 sm:text-sm sm:tracking-[0.25em]"
-          >
-            BLUC FSHN
-          </a>
+      <header className="relative z-30 mb-16 flex items-start justify-between md:mb-20">
+        <a
+          href="/"
+          className="text-xs font-medium tracking-[0.2em] transition-opacity duration-300 hover:opacity-50 sm:text-sm sm:tracking-[0.25em]"
+        >
+          BLUC FSHN
+        </a>
 
-          <nav className="hidden items-center gap-7 md:flex">
-            <a
-              href="/collections"
-              className="text-[10px] tracking-[0.22em] transition-opacity hover:opacity-50"
-            >
-              COLLECTION
-            </a>
+        <div className="text-right">
+          <p className="text-[10px] tracking-[0.2em] text-zinc-500">
+            BLUC FSHN / 004
+          </p>
 
-            <a
-              href="/#about"
-              className="text-[10px] tracking-[0.22em] transition-opacity hover:opacity-50"
-            >
-              ABOUT
-            </a>
-
-            <a
-              href="/#contact"
-              className="text-[10px] tracking-[0.22em] transition-opacity hover:opacity-50"
-            >
-              CONTACT
-            </a>
-          </nav>
-
-          <button
-            type="button"
-            onClick={() => setShowMenu(!showMenu)}
-            className="text-[10px] tracking-[0.22em] md:hidden"
-          >
-            {showMenu ? "CLOSE" : "MENU"}
-          </button>
+          <p className="mt-1 text-[10px] tracking-[0.2em]">
+            NAIROBI, KENYA
+          </p>
         </div>
-
-        {showMenu && (
-          <div className="mt-8 flex flex-col items-end gap-5 text-right md:hidden">
-            <a
-              href="/collections"
-              onClick={() => setShowMenu(false)}
-              className="text-xs tracking-[0.25em]"
-            >
-              COLLECTION
-            </a>
-
-            <a
-              href="/#about"
-              onClick={() => setShowMenu(false)}
-              className="text-xs tracking-[0.25em]"
-            >
-              ABOUT
-            </a>
-
-            <a
-              href="/#contact"
-              onClick={() => setShowMenu(false)}
-              className="text-xs tracking-[0.25em]"
-            >
-              CONTACT
-            </a>
-          </div>
-        )}
       </header>
 
       {/* COLLECTION INTRO */}
-      <section className="px-5 py-16 sm:px-6 sm:py-20 md:px-10 md:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-6 flex items-center justify-between">
-            <p className="text-[10px] tracking-[0.25em] text-zinc-500">
-              BLUC FSHN / {collection.drop}
-            </p>
-
-            <p className="text-[10px] tracking-[0.25em] text-zinc-500">
-              NAIROBI, KENYA
-            </p>
-          </div>
-
-          <h1 className="max-w-6xl text-[15vw] font-black uppercase leading-[0.85] tracking-[-0.05em] sm:text-7xl md:text-9xl">
-            {collection.name}
-          </h1>
-
-          <p className="mt-8 max-w-md text-sm leading-7 text-zinc-500">
-            {collection.description}
+      <section className="relative z-30 mb-16">
+        <div className="mb-6 flex items-center justify-between">
+          <p className="text-[10px] tracking-[0.3em] text-zinc-500">
+            {collection.drop}
           </p>
+
+          <a
+            href="/collections"
+            className="text-[10px] tracking-[0.2em] text-zinc-500 transition-colors hover:text-white"
+          >
+            ← ALL COLLECTIONS
+          </a>
         </div>
+
+        <h1 className="text-[15vw] font-black uppercase leading-[0.8] tracking-[-0.06em] sm:text-7xl md:text-9xl">
+          {collection.name}
+        </h1>
+
+        <p className="mt-8 max-w-md text-xs leading-relaxed tracking-[0.1em] text-zinc-400">
+          {collection.description}
+        </p>
       </section>
 
       {/* COLLECTION PIECES */}
-      {collection.pieces.length > 0 ? (
-        <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 sm:pb-32 md:px-10 md:pb-48">
-          {collection.pieces.map((piece, pieceIndex) => {
-            const currentPhoto = currentPhotos[pieceIndex] ?? 0;
-
-            return (
+      <section className="relative z-30">
+        {collection.pieces.length > 0 ? (
+          <div className="grid gap-12 md:grid-cols-2">
+            {collection.pieces.map((piece, index) => (
               <article
                 key={piece.name}
-                className="mb-20 last:mb-0 sm:mb-28"
+                className={`group ${
+                  index === 0 ? "md:col-span-2" : ""
+                }`}
               >
-                {/* PIECE HEADER */}
-                <div className="mb-5 flex items-end justify-between gap-4">
-                  <div>
-                    <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
-                      PIECE {String(pieceIndex + 1).padStart(2, "0")}
-                    </p>
+                {/* MAIN IMAGE */}
+                <div
+                  className={`relative overflow-hidden bg-zinc-900 ${
+                    index === 0
+                      ? "aspect-[4/5] md:aspect-[16/10]"
+                      : "aspect-[4/5]"
+                  }`}
+                >
+                  <img
+                    src={piece.images[0]}
+                    alt={piece.name}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
 
-                    <h2 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
+                  <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/25" />
+
+                  <div className="absolute left-5 top-5 flex w-[calc(100%-40px)] justify-between text-[9px] tracking-[0.2em] text-white/70 sm:left-6 sm:top-6 sm:w-[calc(100%-48px)] md:left-8 md:top-8 md:w-[calc(100%-64px)]">
+                    <span>0{index + 1}</span>
+                    <span>{collection.drop}</span>
+                  </div>
+                </div>
+
+                {/* PIECE INFO */}
+                <div className="mt-5 flex items-start justify-between border-b border-white/10 pb-5">
+                  <div>
+                    <h2 className="text-lg font-bold uppercase tracking-[-0.02em] sm:text-xl">
                       {piece.name}
                     </h2>
 
-                    <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
-                      {piece.price}
+                    <p className="mt-2 text-[10px] tracking-[0.2em] text-zinc-500">
+                      BLUC FSHN / NAIROBI
                     </p>
                   </div>
 
-                  <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
-                    {currentPhoto + 1} / {piece.images.length}
-                  </span>
+                  <p className="text-xs tracking-[0.15em]">
+                    {piece.price}
+                  </p>
                 </div>
 
-                {/* MAIN IMAGE */}
-                <div className="relative overflow-hidden bg-zinc-900">
-                  <img
-                    src={piece.images[currentPhoto]}
-                    alt={`${collection.name} - ${piece.name}`}
-                    className="h-auto max-h-[80vh] w-full object-contain"
-                  />
-
-                  {piece.images.length > 1 && (
-                    <>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          changePhoto(pieceIndex, -1)
-                        }
-                        className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:left-5"
-                        aria-label="Previous photo"
-                      >
-                        ←
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() =>
-                          changePhoto(pieceIndex, 1)
-                        }
-                        className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:right-5"
-                        aria-label="Next photo"
-                      >
-                        →
-                      </button>
-                    </>
-                  )}
-                </div>
-
-                {/* THUMBNAILS */}
+                {/* EXTRA IMAGES */}
                 {piece.images.length > 1 && (
-                  <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
-                    {piece.images.map((image, imageIndex) => (
-                      <button
+                  <div className="mt-4 grid grid-cols-2 gap-4">
+                    {piece.images.slice(1).map((image, imageIndex) => (
+                      <div
                         key={image}
-                        type="button"
-                        onClick={() =>
-                          setCurrentPhotos((previous) => ({
-                            ...previous,
-                            [pieceIndex]: imageIndex,
-                          }))
-                        }
-                        className={`overflow-hidden border transition-all duration-300 ${
-                          currentPhoto === imageIndex
-                            ? "border-white"
-                            : "border-white/10 opacity-50 hover:opacity-100"
-                        }`}
+                        className="aspect-square overflow-hidden bg-zinc-900"
                       >
                         <img
                           src={image}
-                          alt={`${piece.name} view ${
-                            imageIndex + 1
-                          }`}
-                          className="aspect-[4/5] w-full object-cover"
+                          alt={`${piece.name} view ${imageIndex + 2}`}
+                          className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                         />
-                      </button>
+                      </div>
                     ))}
                   </div>
                 )}
               </article>
-            );
-          })}
-        </section>
-      ) : (
-        /* TEMPORARY EMPTY COLLECTION */
-        <section className="mx-auto max-w-7xl px-5 pb-32 sm:px-6 md:px-10">
-          <div className="flex min-h-[50vh] items-center justify-center border border-white/10">
+            ))}
+          </div>
+        ) : (
+          <div className="flex min-h-[40vh] items-center justify-center border-y border-white/10">
             <div className="text-center">
-              <p className="mb-4 text-[10px] tracking-[0.3em] text-zinc-500">
-                COLLECTION CONTENT
+              <p className="text-[10px] tracking-[0.3em] text-zinc-600">
+                COLLECTION DETAILS
               </p>
 
-              <h2 className="text-4xl font-black uppercase tracking-[-0.04em]">
+              <h2 className="mt-4 text-3xl font-black uppercase tracking-[-0.04em]">
                 COMING SOON
               </h2>
 
-              <p className="mx-auto mt-4 max-w-sm text-xs leading-6 text-zinc-600">
-                Collection pieces will be added here once the
-                collection details are available.
+              <p className="mt-4 text-[10px] tracking-[0.2em] text-zinc-500">
+                MORE FROM BLUC FSHN
               </p>
             </div>
           </div>
-        </section>
-      )}
-
-      {/* BACK TO COLLECTIONS */}
-      <section className="border-t border-white/10 px-5 py-12 sm:px-6 md:px-10">
-        <div className="flex justify-between">
-          <a
-            href="/collections"
-            className="text-[10px] tracking-[0.25em] transition-opacity hover:opacity-50"
-          >
-            ← ALL COLLECTIONS
-          </a>
-
-          <a
-            href="/"
-            className="text-[10px] tracking-[0.25em] transition-opacity hover:opacity-50"
-          >
-            HOME
-          </a>
-        </div>
+        )}
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 px-5 py-10 sm:px-6 sm:py-12 md:px-10 md:py-16">
+      <footer className="relative z-30 mt-24 border-t border-white/10 pt-6">
         <div className="flex flex-col justify-between gap-3 text-[9px] tracking-[0.15em] text-zinc-600 sm:flex-row sm:text-[10px] sm:tracking-[0.2em]">
           <p>© 2023 BLUC FSHN</p>
           <p>MADE IN NAIROBI</p>
