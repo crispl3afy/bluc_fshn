@@ -116,31 +116,61 @@ export default function CollectionsPage() {
             className="group relative block overflow-hidden"
           >
             <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
-              <img
-                src={collection.image}
-                alt={collection.name}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+  <img
+    src={collection.image}
+    alt={collection.name}
+    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+  />
 
-              <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/40" />
+  {collection.slug === "money-laundering" && (
+    <div
+      className="pointer-events-none absolute inset-0 z-25 overflow-hidden"
+      aria-hidden="true"
+    >
+      {[
+        { left: "5%", delay: "0s", duration: "5s", size: "42px" },
+        { left: "20%", delay: "1.5s", duration: "6s", size: "35px" },
+        { left: "38%", delay: "0.8s", duration: "5.5s", size: "45px" },
+        { left: "55%", delay: "2s", duration: "6.5s", size: "38px" },
+        { left: "72%", delay: "0.5s", duration: "5s", size: "42px" },
+        { left: "88%", delay: "2.5s", duration: "6s", size: "35px" },
+      ].map((money, index) => (
+        <img
+          key={index}
+          src="/bluc-money.png"
+          alt=""
+          className="money-rain-preview absolute top-[-80px] opacity-80"
+          style={{
+            left: money.left,
+            width: money.size,
+            height: "auto",
+            animationDuration: money.duration,
+            animationDelay: money.delay,
+          }}
+        />
+      ))}
+    </div>
+  )}
 
-              <div className="absolute inset-0 flex flex-col justify-between p-5 sm:p-6 md:p-8">
-                <div className="flex justify-between text-[9px] tracking-[0.2em] text-white/70 sm:text-[10px]">
-                  <span>{collection.number}</span>
-                  <span>BLUC / 004</span>
-                </div>
+  <div className="absolute inset-0 z-20 bg-black/20 transition-colors duration-500 group-hover:bg-black/40" />
 
-                <div>
-                  <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.04em] sm:text-5xl md:text-6xl">
-                    {collection.name}
-                  </h2>
+  <div className="absolute inset-0 z-30 flex flex-col justify-between p-5 sm:p-6 md:p-8">
+    <div className="flex justify-between text-[9px] tracking-[0.2em] text-white/70 sm:text-[10px]">
+      <span>{collection.number}</span>
+      <span>BLUC / 004</span>
+    </div>
 
-                  <p className="mt-4 text-[10px] tracking-[0.25em] text-white/70 transition-all duration-300 group-hover:text-white">
-                    VIEW COLLECTION →
-                  </p>
-                </div>
-              </div>
-            </div>
+    <div>
+      <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.04em] sm:text-5xl md:text-6xl">
+        {collection.name}
+      </h2>
+
+      <p className="mt-4 text-[10px] tracking-[0.25em] text-white/70 transition-all duration-300 group-hover:text-white">
+        VIEW COLLECTION →
+      </p>
+    </div>
+  </div>
+</div>
           </a>
         ))}
       </section>

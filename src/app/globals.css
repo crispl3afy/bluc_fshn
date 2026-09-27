@@ -581,3 +581,24 @@ body * {
   animation-iteration-count: infinite;
   pointer-events: none;
 }
+
+@keyframes moneyFallPreview {
+  0% {
+    transform: translateY(-80px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(220px) rotate(180deg);
+  }
+
+  100% {
+    transform: translateY(520px) rotate(360deg);
+  }
+}
+
+.money-rain-preview {
+  animation-name: moneyFallPreview;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+}

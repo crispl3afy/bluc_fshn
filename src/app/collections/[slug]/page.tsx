@@ -245,93 +245,82 @@ export default function CollectionPage({
       </section>
 
       {/* COLLECTION PIECES */}
-      <section className="relative z-30">
-        {collection.pieces.length > 0 ? (
-          <div className="grid gap-12 md:grid-cols-2">
-            {collection.pieces.map((piece, index) => (
-              <article
-                key={piece.name}
-                className={`group ${
-                  index === 0 ? "md:col-span-2" : ""
-                }`}
-              >
-                {/* MAIN IMAGE */}
-                <div
-                  className={`relative overflow-hidden bg-zinc-900 ${
-                    index === 0
-                      ? "aspect-[4/5] md:aspect-[16/10]"
-                      : "aspect-[4/5]"
-                  }`}
-                >
-                  <img
-                    src={piece.images[0]}
-                    alt={piece.name}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+  <section className="relative z-30">
+  {collection.pieces.length > 0 ? (
+    <div className="grid gap-12 md:grid-cols-2">
+      {collection.pieces.map((piece, index) => (
+        <article key={piece.name} className="group">
+          {/* MAIN IMAGE */}
+          <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
+            <img
+              src={piece.images[0]}
+              alt={piece.name}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
 
-                  <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/25" />
+            <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/25" />
 
-                  <div className="absolute left-5 top-5 flex w-[calc(100%-40px)] justify-between text-[9px] tracking-[0.2em] text-white/70 sm:left-6 sm:top-6 sm:w-[calc(100%-48px)] md:left-8 md:top-8 md:w-[calc(100%-64px)]">
-                    <span>0{index + 1}</span>
-                    <span>{collection.drop}</span>
-                  </div>
-                </div>
-
-                {/* PIECE INFO */}
-                <div className="mt-5 flex items-start justify-between border-b border-white/10 pb-5">
-                  <div>
-                    <h2 className="text-lg font-bold uppercase tracking-[-0.02em] sm:text-xl">
-                      {piece.name}
-                    </h2>
-
-                    <p className="mt-2 text-[10px] tracking-[0.2em] text-zinc-500">
-                      BLUC FSHN / NAIROBI
-                    </p>
-                  </div>
-
-                  <p className="text-xs tracking-[0.15em]">
-                    {piece.price}
-                  </p>
-                </div>
-
-                {/* EXTRA IMAGES */}
-                {piece.images.length > 1 && (
-                  <div className="mt-4 grid grid-cols-2 gap-4">
-                    {piece.images.slice(1).map((image, imageIndex) => (
-                      <div
-                        key={image}
-                        className="aspect-square overflow-hidden bg-zinc-900"
-                      >
-                        <img
-                          src={image}
-                          alt={`${piece.name} view ${imageIndex + 2}`}
-                          className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className="flex min-h-[40vh] items-center justify-center border-y border-white/10">
-            <div className="text-center">
-              <p className="text-[10px] tracking-[0.3em] text-zinc-600">
-                COLLECTION DETAILS
-              </p>
-
-              <h2 className="mt-4 text-3xl font-black uppercase tracking-[-0.04em]">
-                COMING SOON
-              </h2>
-
-              <p className="mt-4 text-[10px] tracking-[0.2em] text-zinc-500">
-                MORE FROM BLUC FSHN
-              </p>
+            <div className="absolute left-5 top-5 flex w-[calc(100%-40px)] justify-between text-[9px] tracking-[0.2em] text-white/70 sm:left-6 sm:top-6 sm:w-[calc(100%-48px)]">
+              <span>0{index + 1}</span>
+              <span>{collection.drop}</span>
             </div>
           </div>
-        )}
-      </section>
+
+          {/* PIECE INFO */}
+          <div className="mt-5 flex items-start justify-between border-b border-white/10 pb-5">
+            <div>
+              <h2 className="text-lg font-bold uppercase tracking-[-0.02em] sm:text-xl">
+                {piece.name}
+              </h2>
+
+              <p className="mt-2 text-[10px] tracking-[0.2em] text-zinc-500">
+                BLUC FSHN / NAIROBI
+              </p>
+            </div>
+
+            <p className="text-xs tracking-[0.15em]">
+              {piece.price}
+            </p>
+          </div>
+
+          {/* EXTRA IMAGES */}
+          {piece.images.length > 1 && (
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              {piece.images.slice(1).map((image, imageIndex) => (
+                <div
+                  key={image}
+                  className="aspect-square overflow-hidden bg-zinc-900"
+                >
+                  <img
+                    src={image}
+                    alt={`${piece.name} view ${imageIndex + 2}`}
+                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  ) : (
+    <div className="flex min-h-[40vh] items-center justify-center border-y border-white/10">
+      <div className="text-center">
+        <p className="text-[10px] tracking-[0.3em] text-zinc-600">
+          COLLECTION DETAILS
+        </p>
+
+        <h2 className="mt-4 text-3xl font-black uppercase tracking-[-0.04em]">
+          COMING SOON
+        </h2>
+
+        <p className="mt-4 text-[10px] tracking-[0.2em] text-zinc-500">
+          MORE FROM BLUC FSHN
+        </p>
+      </div>
+    </div>
+  )}
+</section>
 
       {/* FOOTER */}
       <footer className="relative z-30 mt-24 border-t border-white/10 pt-6">
