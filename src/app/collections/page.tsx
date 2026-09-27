@@ -10,8 +10,8 @@ const collections = [
     image: "/jacket.moneylaundering.jpeg",
   },
   {
-    name: "GUAP",
-    slug: "guap",
+    name: "drop 3",
+    slug: "drop 3",
     number: "DROP 03",
     image: "/bee.boy.png",
   },
