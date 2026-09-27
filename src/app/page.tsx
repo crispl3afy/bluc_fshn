@@ -402,7 +402,7 @@ export default function Home() {
                 </div>
 
                 <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
-                  Money Laundering jacket from BLUC FSHN Drop 01.
+                  Money Laundry jacket from BLUC FSHN Drop 01.
                 </p>
               </div>
 
@@ -437,7 +437,7 @@ export default function Home() {
                         "/jeans.pockets.jpeg",
                       ][jeansPhoto]
                     }
-                    alt="BLUC FSHN Money Laundering jeans"
+                    alt="BLUC FSHN Money Laundry jeans"
                     className="h-auto max-h-[80vh] w-full object-contain"
                   />
 
