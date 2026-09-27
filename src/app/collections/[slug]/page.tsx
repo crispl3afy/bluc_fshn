@@ -46,10 +46,10 @@ const collections: Record<
     ],
   },
 
-  guap: {
-    name: "GUAP",
+  "drop 3": {
+    name: "drop 3",
     drop: "DROP 03",
-    description: "GUAP collection from BLUC FSHN.",
+    description: "drop 3 collection from BLUC FSHN.",
     pieces: [],
   },
 
