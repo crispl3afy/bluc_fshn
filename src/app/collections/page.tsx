@@ -56,6 +56,22 @@ const moneyRain = [
   { left: "59%", delay: "3.2s", duration: "5.9s", size: "47px", rotate: "11deg" },
   { left: "89%", delay: "3.8s", duration: "6.6s", size: "39px", rotate: "-19deg" },
 ];
+const moneyPieces = [
+  { left: "2%", delay: "0s", duration: "7s", size: "42px", rotate: "-18deg" },
+  { left: "8%", delay: "2s", duration: "9s", size: "55px", rotate: "16deg" },
+  { left: "15%", delay: "4s", duration: "8s", size: "38px", rotate: "-25deg" },
+  { left: "22%", delay: "1s", duration: "10s", size: "62px", rotate: "12deg" },
+  { left: "29%", delay: "5s", duration: "7.5s", size: "48px", rotate: "-10deg" },
+  { left: "36%", delay: "2s", duration: "9.5s", size: "40px", rotate: "22deg" },
+  { left: "43%", delay: "6s", duration: "8.5s", size: "68px", rotate: "-16deg" },
+  { left: "50%", delay: "3s", duration: "11s", size: "45px", rotate: "18deg" },
+  { left: "57%", delay: "0s", duration: "8s", size: "58px", rotate: "-22deg" },
+  { left: "64%", delay: "5s", duration: "9s", size: "40px", rotate: "14deg" },
+  { left: "71%", delay: "2s", duration: "7s", size: "60px", rotate: "-12deg" },
+  { left: "78%", delay: "0.5s", duration: "10s", size: "44px", rotate: "25deg" },
+  { left: "85%", delay: "6s", duration: "8.5s", size: "52px", rotate: "-20deg" },
+  { left: "92%", delay: "3s", duration: "9.5s", size: "46px", rotate: "20deg" },
+];
 
 export default function CollectionsPage() {
   // RED CAN CURSOR
@@ -153,27 +169,26 @@ export default function CollectionsPage() {
 
               {/* MONEY RAIN — MONEY LAUNDERING ONLY */}
               {collection.slug === "money-laundering" && (
-                <div
-                  className="pointer-events-none absolute inset-0 z-25 overflow-hidden"
-                  aria-hidden="true"
-                >
-                  {moneyRain.map((money, index) => (
-                    <img
-                      key={index}
-                      src="/bluc-money.png"
-                      alt=""
-                      className="money-rain-preview absolute top-[-100px] opacity-85"
-                      style={{
-                        left: money.left,
-                        width: money.size,
-                        height: "auto",
-                        animationDuration: money.duration,
-                        animationDelay: money.delay,
-                        transform: `rotate(${money.rotate})`,
-                      }}
-                    />
-                  ))}
-                </div>
+               <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+  {moneyPieces.map((money, index) => (
+    <img
+      key={index}
+      src="/bluc-money.png"
+      alt=""
+      className="money-rain-preview absolute"
+      style={
+        {
+          left: money.left,
+          width: money.size,
+          height: "auto",
+          animationDuration: money.duration,
+          animationDelay: money.delay,
+          "--money-rotate": money.rotate,
+        } as React.CSSProperties
+      }
+    />
+  ))}
+</div>
               )}
 
               {/* DARK OVERLAY */}

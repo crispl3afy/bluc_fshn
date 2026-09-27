@@ -39,7 +39,6 @@ body {
   font-weight: 400;
   letter-spacing: -0.08em;
 
-  /* Glassy metallic body */
   background:
     linear-gradient(
       105deg,
@@ -59,7 +58,6 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /* Creates the thick inflated edge */
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.35);
 
   filter:
@@ -76,12 +74,18 @@ body {
 @keyframes floatLogo {
   0%,
   100% {
-    transform: scaleX(1.4) perspective(900px) rotateX(7deg)
+    transform:
+      scaleX(1.4)
+      perspective(900px)
+      rotateX(7deg)
       translateY(0);
   }
 
   50% {
-    transform: scaleX(1.4) perspective(900px) rotateX(7deg)
+    transform:
+      scaleX(1.4)
+      perspective(900px)
+      rotateX(7deg)
       translateY(-8px);
   }
 }
@@ -129,10 +133,8 @@ body {
 
   -webkit-mask-image: linear-gradient(#000 0 0);
   mask-image: linear-gradient(#000 0 0);
-
   -webkit-mask-clip: text;
   mask-clip: text;
-
   -webkit-text-fill-color: transparent;
 
   opacity: 0.9;
@@ -149,7 +151,10 @@ body {
   position: absolute;
   inset: 0;
 
-  transform: scaleX(1.4) perspective(900px) rotateX(7deg);
+  transform:
+    scaleX(1.4)
+    perspective(900px)
+    rotateX(7deg);
 
   background:
     linear-gradient(
@@ -168,19 +173,24 @@ body {
 
   opacity: 0.8;
   pointer-events: none;
-
   animation: colorShift 7s ease-in-out infinite;
 }
 
 @keyframes colorShift {
   0%,
   100% {
-    transform: scaleX(1.4) perspective(900px) rotateX(7deg)
+    transform:
+      scaleX(1.4)
+      perspective(900px)
+      rotateX(7deg)
       translateX(-10px);
   }
 
   50% {
-    transform: scaleX(1.4) perspective(900px) rotateX(7deg)
+    transform:
+      scaleX(1.4)
+      perspective(900px)
+      rotateX(7deg)
       translateX(10px);
   }
 }
@@ -201,13 +211,10 @@ body {
 .hero::before {
   content: "";
   position: absolute;
-
   width: 55vw;
   height: 55vw;
-
   top: 20%;
   left: 20%;
-
   transform: translate(-50%, -50%);
 
   background:
@@ -225,10 +232,8 @@ body {
 .hero::after {
   content: "";
   position: absolute;
-
   width: 50vw;
   height: 50vw;
-
   bottom: -15%;
   right: 0;
 
@@ -295,17 +300,13 @@ body {
 
 .hero-bee {
   position: absolute;
-
-  /* Smaller bee */
   width: min(18vw, 220px);
   height: auto;
-
   left: 50%;
   top: 50%;
 
   transform-style: preserve-3d;
   perspective: 800px;
-
   z-index: 2;
 
   filter:
@@ -314,7 +315,6 @@ body {
     drop-shadow(0 0 28px rgba(170, 255, 0, 0.08));
 
   animation: beeFloat 5s ease-in-out infinite;
-
   transition: filter 0.4s ease;
 }
 
@@ -337,11 +337,8 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-
   pointer-events: none;
-
   z-index: 9999;
-
   opacity: 0.035;
 
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
@@ -353,7 +350,7 @@ body::after {
 
 html,
 body {
-  cursor: url("/cancursor.png") 35 35, auto !important;
+  cursor: url("/can.cursor.png") 35 35, auto !important;
 }
 
 html *,
@@ -362,6 +359,7 @@ body * {
 }
 
 /* Phones use normal cursor */
+
 @media (max-width: 640px) {
   html,
   body,
@@ -370,7 +368,9 @@ body * {
     cursor: auto !important;
   }
 }
+
 /* Custom can cursor - desktop only */
+
 @media (min-width: 641px) {
   html,
   body,
@@ -379,7 +379,11 @@ body * {
     cursor: none !important;
   }
 }
-/*bulc money rain*/
+
+/* =========================
+   BLUC MONEY RAIN
+   ========================= */
+
 .money-rain {
   position: absolute;
   inset: 0;
@@ -394,6 +398,7 @@ body * {
   opacity: 0.9;
   object-fit: contain;
   will-change: transform;
+
   animation-name: money-fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -553,83 +558,9 @@ body * {
   }
 }
 
-@keyframes moneyFall {
-  0% {
-    transform: translateY(-150px) rotate(0deg);
-  }
-
-  25% {
-    transform: translateY(25vh) rotate(90deg);
-  }
-
-  50% {
-    transform: translateY(50vh) rotate(180deg);
-  }
-
-  75% {
-    transform: translateY(75vh) rotate(270deg);
-  }
-
-  100% {
-    transform: translateY(115vh) rotate(360deg);
-  }
-}
-
-.money-rain-piece {
-  animation-name: moneyFall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  pointer-events: none;
-}
-
-@keyframes moneyFallPreview {
-  0% {
-    transform: translateY(-80px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(220px) rotate(180deg);
-  }
-
-  100% {
-    transform: translateY(520px) rotate(360deg);
-  }
-}
-
-.money-rain-preview {
-  animation-name: moneyFallPreview;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  pointer-events: none;
-}
-
-.money-rain-preview {
-  animation-name: moneyFallPreview;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  will-change: transform, opacity;
-}
-
-@keyframes moneyFallPreview {
-  0% {
-    transform: translateY(-120px) rotate(-15deg);
-    opacity: 0;
-  }
-
-  8% {
-    opacity: 0.85;
-  }
-
-  50% {
-    opacity: 0.85;
-  }
-
-  100% {
-    transform: translateY(calc(100% + 150px)) rotate(25deg);
-    opacity: 0;
-  }
-}
+/* =========================
+   MONEY RAIN - COLLECTION PAGE
+   ========================= */
 
 .money-rain-piece {
   animation-name: moneyFall;
@@ -637,6 +568,7 @@ body * {
   animation-iteration-count: infinite;
   animation-fill-mode: both;
   will-change: transform, opacity;
+  pointer-events: none;
   filter: contrast(1.15) saturate(1.15);
 }
 
@@ -659,21 +591,89 @@ body * {
   }
 
   100% {
-    transform: translateY(calc(100vh + 180px))
+    transform:
+      translateY(calc(100vh + 180px))
       rotate(calc(var(--money-rotate) + 180deg));
     opacity: 0;
   }
 }
 
+/* =========================
+   MONEY RAIN - COLLECTION PREVIEW
+   ========================= */
+
+/*
+  The preview uses TOP instead of translateY for the
+  vertical movement.
+
+  This makes 100% refer to the full height of the
+  jacket preview container, so the money falls all
+  the way across the jacket and exits underneath it.
+*/
+
+.money-rain-preview {
+  position: absolute;
+  top: -150px;
+
+  animation-name: moneyFallPreview;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+
+  will-change: top, transform, opacity;
+  pointer-events: none;
+
+  filter: contrast(1.15) saturate(1.15);
+}
+
+@keyframes moneyFallPreview {
+  0% {
+    top: -150px;
+    transform: rotate(-15deg);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.95;
+  }
+
+  100% {
+    top: calc(100% + 150px);
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   MONEY RAIN MOBILE
+   ========================= */
+
 @media (max-width: 768px) {
   .money-rain-piece {
     opacity: 0.65;
   }
+
+  .money-rain-preview {
+    opacity: 0.85;
+  }
 }
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
 
 @media (prefers-reduced-motion: reduce) {
   .money-rain-piece,
-  .money-rain-preview {
+  .money-rain-preview,
+  .money-note {
     animation: none;
     display: none;
   }
