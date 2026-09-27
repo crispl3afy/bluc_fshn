@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -29,48 +28,54 @@ const collections = [
     image: "/bee.boy.png",
   },
 ];
-const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-useEffect(() => {
-  const handleMouseMove = (event: MouseEvent) => {
-    setCursorPosition({
-      x: event.clientX,
-      y: event.clientY,
-    });
-  };
-
-  window.addEventListener("mousemove", handleMouseMove);
-
-  return () => {
-    window.removeEventListener("mousemove", handleMouseMove);
-  };
-}, []);
 export default function CollectionsPage() {
+  // RED CAN CURSOR
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      setCursorPosition({
+        x: event.clientX,
+        y: event.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#050505] px-5 py-8 text-[#f5f5f0] sm:px-6 md:px-10 md:py-10">
-        <div
-  className="hidden md:block"
-  style={{
-    position: "fixed",
-    left: cursorPosition.x,
-    top: cursorPosition.y,
-    width: "80px",
-    height: "80px",
-    zIndex: 99999,
-    pointerEvents: "none",
-    transform: "translate(-50%, -50%)",
-  }}
->
-  <img
-    src="/can.cursor.png"
-    alt=""
-    style={{
-      width: "100%",
-      height: "100%",
-      objectFit: "contain",
-    }}
-  />
-</div>
+
+      {/* RED CAN CURSOR */}
+      <div
+        className="hidden md:block"
+        style={{
+          position: "fixed",
+          left: cursorPosition.x,
+          top: cursorPosition.y,
+          width: "80px",
+          height: "80px",
+          zIndex: 99999,
+          pointerEvents: "none",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <img
+          src="/can.cursor.png"
+          alt=""
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
+
       {/* HEADER */}
       <header className="mb-20 flex items-start justify-between">
         <a
@@ -150,4 +155,3 @@ export default function CollectionsPage() {
     </main>
   );
 }
-
