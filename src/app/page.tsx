@@ -218,7 +218,7 @@ export default function Home() {
         <div className="mb-12 flex items-end justify-between gap-4 sm:mb-16">
           <div>
             <p className="mb-3 text-[10px] tracking-[0.25em] text-zinc-500 sm:text-xs sm:tracking-[0.3em]">
-              BLUC FSHN / 001
+              BLUC FSHN / 004
             </p>
 
             <h2 className="text-[15vw] font-black uppercase leading-none tracking-[-0.04em] sm:text-6xl md:text-9xl">
@@ -261,8 +261,8 @@ export default function Home() {
           {/* COLLECTION INFORMATION */}
           <div className="relative z-20 flex min-h-[65vh] flex-col justify-between p-5 sm:min-h-[70vh] sm:p-6 md:p-10">
             <div className="flex justify-between gap-4 text-[10px] tracking-[0.15em] text-white/70 sm:text-xs sm:tracking-[0.2em]">
-              <span>DROP 01</span>
-              <span>BLUC / 001</span>
+              <span>DROP 04</span>
+              <span>BLUC / 004</span>
             </div>
 
             <div>
@@ -295,7 +295,7 @@ export default function Home() {
             <div className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-[#050505]/90 px-5 py-5 backdrop-blur-md sm:px-6 md:px-10">
               <div>
                 <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
-                  BLUC FSHN / DROP 01
+                  BLUC FSHN / DROP 04
                 </p>
 
                 <h2 className="mt-1 text-lg font-bold tracking-[-0.02em] sm:text-xl">
@@ -402,7 +402,7 @@ export default function Home() {
                 </div>
 
                 <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
-                  Money Laundry jacket from BLUC FSHN Drop 01.
+                  Money Laundry jacket from BLUC FSHN Drop 04.
                 </p>
               </div>
 
@@ -494,7 +494,7 @@ export default function Home() {
                 </div>
 
                 <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
-                  Money Laundry jeans from BLUC FSHN Drop 01.
+                  Money Laundry jeans from BLUC FSHN Drop 04
                 </p>
               </div>
 
@@ -530,7 +530,7 @@ export default function Home() {
 
                 <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
                   Money Laundry
-                   bikini from BLUC FSHN Drop 01.
+                   bikini from BLUC FSHN Drop 04.
                 </p>
               </div>
             </div>
