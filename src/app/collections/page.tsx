@@ -165,9 +165,9 @@ export default function CollectionsPage() {
         {collection.name}
       </h2>
 
-      <p className="mt-4 text-[10px] tracking-[0.25em] text-white/70 transition-all duration-300 group-hover:text-white">
-        VIEW COLLECTION →
-      </p>
+     <div className="mt-4 inline-block bg-black px-4 py-3 text-[10px] font-medium tracking-[0.2em] text-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
+  VIEW COLLECTION →
+</div>
     </div>
   </div>
 </div>
