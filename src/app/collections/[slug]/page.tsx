@@ -1,7 +1,6 @@
-
 "use client";
 
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 const collections: Record<
   string,
   {
@@ -68,7 +67,8 @@ const collections: Record<
   },
 };
 
-export default function CollectionPage({
+export default function CollectionPage({ 
+
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -79,6 +79,23 @@ export default function CollectionPage({
     {}
   );
 
+const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+useEffect(() => {
+  const handleMouseMove = (event: MouseEvent) => {
+    setCursorPosition({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  window.addEventListener("mousemove", handleMouseMove);
+
+  return () => {
+    window.removeEventListener("mousemove", handleMouseMove);
+  };
+}, []);
+
   const [showMenu, setShowMenu] = useState(false);
 
   const collection = collections[slug];
@@ -86,6 +103,29 @@ export default function CollectionPage({
   if (!collection) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-5 text-center text-[#f5f5f0]">
+        <div
+  className="hidden md:block"
+  style={{
+    position: "fixed",
+    left: cursorPosition.x,
+    top: cursorPosition.y,
+    width: "80px",
+    height: "80px",
+    zIndex: 99999,
+    pointerEvents: "none",
+    transform: "translate(-50%, -50%)",
+  }}
+>
+  <img
+    src="/can.cursor.png"
+    alt=""
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "contain",
+    }}
+  />
+</div>
         <p className="mb-4 text-[10px] tracking-[0.3em] text-zinc-500">
           BLUC FSHN
         </p>
