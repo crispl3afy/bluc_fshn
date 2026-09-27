@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -14,10 +13,7 @@ export default function Home() {
     y: 0,
   });
 
-  const [showMoneyLaundering, setShowMoneyLaundering] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [jacketPhoto, setJacketPhoto] = useState(0);
-  const [jeansPhoto, setJeansPhoto] = useState(0);
 
   useEffect(() => {
     document.documentElement.style.cursor = "none";
@@ -70,30 +66,30 @@ export default function Home() {
         }}
       />
 
-    {/* CUSTOM CAN CURSOR — DESKTOP ONLY */}
-<div
-  className="hidden md:block"
-  style={{
-    position: "fixed",
-    left: cursorPosition.x,
-    top: cursorPosition.y,
-    width: "80px",
-    height: "80px",
-    zIndex: 99999,
-    pointerEvents: "none",
-    transform: "translate(-50%, -50%)",
-  }}
->
-  <img
-    src="/can.cursor.png"
-    alt=""
-    style={{
-      width: "100%",
-      height: "100%",
-      objectFit: "contain",
-    }}
-  />
-</div>
+      {/* CUSTOM CAN CURSOR — DESKTOP ONLY */}
+      <div
+        className="hidden md:block"
+        style={{
+          position: "fixed",
+          left: cursorPosition.x,
+          top: cursorPosition.y,
+          width: "80px",
+          height: "80px",
+          zIndex: 99999,
+          pointerEvents: "none",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <img
+          src="/can.cursor.png"
+          alt=""
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
 
       {/* HERO */}
       <section className="hero relative min-h-screen overflow-hidden p-5 sm:p-6 md:p-10">
@@ -111,7 +107,7 @@ export default function Home() {
           {/* DESKTOP NAVIGATION */}
           <nav className="hidden items-center gap-7 md:flex">
             <a
-              href="#collection"
+              href="/collections"
               className="text-[10px] tracking-[0.22em] transition-opacity duration-300 hover:opacity-50"
             >
               COLLECTION
@@ -151,7 +147,7 @@ export default function Home() {
         {showMenu && (
           <div className="relative z-20 mt-8 flex flex-col items-end gap-5 text-right md:hidden">
             <a
-              href="#collection"
+              href="/collections"
               onClick={() => setShowMenu(false)}
               className="text-xs tracking-[0.25em] transition-opacity duration-300 hover:opacity-50"
             >
@@ -202,7 +198,7 @@ export default function Home() {
           </div>
 
           <a
-            href="#collection"
+            href="/collections"
             className="max-w-[150px] text-right text-[9px] tracking-[0.2em] transition-opacity duration-300 hover:opacity-50 sm:max-w-none sm:text-xs sm:tracking-[0.35em]"
           >
             SCROLL TO EXPLORE
@@ -210,11 +206,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COLLECTION */}
-      <section
-        id="collection"
-        className="min-h-screen px-5 py-24 sm:px-6 sm:py-32 md:px-10 md:py-48"
-      >
+      {/* COLLECTION PREVIEW */}
+      <section className="px-5 py-24 sm:px-6 sm:py-32 md:px-10 md:py-48">
         <div className="mb-12 flex items-end justify-between gap-4 sm:mb-16">
           <div>
             <p className="mb-3 text-[10px] tracking-[0.25em] text-zinc-500 sm:text-xs sm:tracking-[0.3em]">
@@ -231,7 +224,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* MONEY LAUNDRY */}
+        {/* MONEY LAUNDERING PREVIEW */}
         <div className="relative min-h-[65vh] overflow-hidden sm:min-h-[70vh]">
           <img
             src="/jacket.moneylaundering.jpeg"
@@ -276,266 +269,16 @@ export default function Home() {
                 LAUNDRY.
               </h3>
 
-              <button
-                type="button"
-                onClick={() => setShowMoneyLaundering(true)}
+              <a
+                href="/collections/money-laundering"
                 className="mt-6 inline-flex items-center gap-3 border border-white/30 px-5 py-3 text-[10px] tracking-[0.25em] transition-all duration-300 hover:bg-white hover:text-black sm:text-xs"
               >
                 VIEW DROP
                 <span>→</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
-
-        {/* MONEY LAUNDRY GALLERY */}
-        {showMoneyLaundering && (
-          <div className="fixed inset-0 z-[99990] overflow-y-auto bg-[#050505]">
-            {/* GALLERY HEADER */}
-            <div className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-[#050505]/90 px-5 py-5 backdrop-blur-md sm:px-6 md:px-10">
-              <div>
-                <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
-                  BLUC FSHN / DROP 04
-                </p>
-
-                <h2 className="mt-1 text-lg font-bold tracking-[-0.02em] sm:text-xl">
-                  MONEY LAUNDRY
-                </h2>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setShowMoneyLaundering(false)}
-                className="flex h-10 w-10 items-center justify-center border border-white/20 text-lg transition-all duration-300 hover:bg-white hover:text-black"
-                aria-label="Close gallery"
-              >
-                ×
-              </button>
-            </div>
-
-            <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 sm:py-14 md:px-10 md:py-20">
-              {/* JACKET */}
-              <div className="mb-20 sm:mb-28">
-                <div className="mb-5 flex items-end justify-between">
-                  <div>
-                    <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
-                      PIECE 01
-                    </p>
-
-                    <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
-                      YELLOW JACKET
-                    </h3>
-
-                    <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
-                      KSh 7,500
-                    </p>
-                  </div>
-
-                  <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
-                    {jacketPhoto + 1} / 3
-                  </span>
-                </div>
-
-                <div className="relative overflow-hidden bg-zinc-900">
-                  <img
-                    src={
-                      [
-                        "/jacket.moneylaundering.jpeg",
-                        "/jacket.frontside.jpeg",
-                        "/jacket.backside.jpeg",
-                      ][jacketPhoto]
-                    }
-                    alt="BLUC FSHN Money Laundering jacket"
-                    className="h-auto max-h-[80vh] w-full object-contain"
-                  />
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setJacketPhoto((current) =>
-                        current === 0 ? 2 : current - 1
-                      )
-                    }
-                    className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:left-5"
-                    aria-label="Previous jacket photo"
-                  >
-                    ←
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setJacketPhoto((current) =>
-                        current === 2 ? 0 : current + 1
-                      )
-                    }
-                    className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:right-5"
-                    aria-label="Next jacket photo"
-                  >
-                    →
-                  </button>
-                </div>
-
-                <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
-                  {[
-                    "/jacket.moneylaundering.jpeg",
-                    "/jacket.frontside.jpeg",
-                    "/jacket.backside.jpeg",
-                  ].map((photo, index) => (
-                    <button
-                      key={photo}
-                      type="button"
-                      onClick={() => setJacketPhoto(index)}
-                      className={`overflow-hidden border transition-all duration-300 ${
-                        jacketPhoto === index
-                          ? "border-white"
-                          : "border-white/10 opacity-50 hover:opacity-100"
-                      }`}
-                    >
-                      <img
-                        src={photo}
-                        alt={`Jacket view ${index + 1}`}
-                        className="aspect-[4/5] w-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-
-                <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
-                  Money Laundry jacket from BLUC FSHN Drop 04.
-                </p>
-              </div>
-
-              {/* JEANS */}
-              <div className="mb-20 sm:mb-28">
-                <div className="mb-5 flex items-end justify-between">
-                  <div>
-                    <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
-                      PIECE 02
-                    </p>
-
-                    <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
-                      WALKING ON WINGS PANTS
-                    </h3>
-
-                    <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
-                      KSh 4,000
-                    </p>
-                  </div>
-
-                  <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
-                    {jeansPhoto + 1} / 3
-                  </span>
-                </div>
-
-                <div className="relative overflow-hidden bg-zinc-900">
-                  <img
-                    src={
-                      [
-                        "/jeans.moneylaundering.jpeg",
-                        "/jeans.backside.jpeg",
-                        "/jeans.pockets.jpeg",
-                      ][jeansPhoto]
-                    }
-                    alt="BLUC FSHN Money Laundry jeans"
-                    className="h-auto max-h-[80vh] w-full object-contain"
-                  />
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setJeansPhoto((current) =>
-                        current === 0 ? 2 : current - 1
-                      )
-                    }
-                    className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:left-5"
-                    aria-label="Previous jeans photo"
-                  >
-                    ←
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setJeansPhoto((current) =>
-                        current === 2 ? 0 : current + 1
-                      )
-                    }
-                    className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-white/30 bg-black/30 text-lg backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black sm:right-5"
-                    aria-label="Next jeans photo"
-                  >
-                    →
-                  </button>
-                </div>
-
-                <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
-                  {[
-                    "/jeans.moneylaundering.jpeg",
-                    "/jeans.backside.jpeg",
-                    "/jeans.pockets.jpeg",
-                  ].map((photo, index) => (
-                    <button
-                      key={photo}
-                      type="button"
-                      onClick={() => setJeansPhoto(index)}
-                      className={`overflow-hidden border transition-all duration-300 ${
-                        jeansPhoto === index
-                          ? "border-white"
-                          : "border-white/10 opacity-50 hover:opacity-100"
-                      }`}
-                    >
-                      <img
-                        src={photo}
-                        alt={`Jeans view ${index + 1}`}
-                        className="aspect-[4/5] w-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-
-                <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
-                  Money Laundry jeans from BLUC FSHN Drop 04
-                </p>
-              </div>
-
-              {/* BIKINI */}
-              <div>
-                <div className="mb-5 flex items-end justify-between">
-                  <div>
-                    <p className="text-[9px] tracking-[0.25em] text-zinc-500 sm:text-[10px]">
-                      PIECE 03
-                    </p>
-
-                    <h3 className="mt-1 text-2xl font-bold uppercase tracking-[-0.03em] sm:text-3xl md:text-4xl">
-                      LADY MONEY BIKINI SET
-                    </h3>
-
-                    <p className="mt-2 text-sm tracking-[0.15em] text-white/60">
-                      KSh 1,500
-                    </p>
-                  </div>
-
-                  <span className="text-[9px] tracking-[0.2em] text-zinc-600 sm:text-[10px]">
-                    01 / 01
-                  </span>
-                </div>
-
-                <div className="overflow-hidden bg-zinc-900">
-                  <img
-                    src="/bikini.moneylaundering.jpeg"
-                    alt="BLUC FSHN Money Laundering bikini"
-                    className="h-auto max-h-[80vh] w-full object-contain"
-                  />
-                </div>
-
-                <p className="mt-4 max-w-md text-xs leading-6 text-zinc-500">
-                  Money Laundry
-                   bikini from BLUC FSHN Drop 04.
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
       </section>
 
       {/* ABOUT */}
@@ -551,7 +294,7 @@ export default function Home() {
           <h2 className="max-w-5xl text-[11vw] font-black leading-[0.95] tracking-[-0.04em] sm:text-5xl md:text-8xl">
             BUILT FOR THE ONES
             <br />
-            WHO DON'T FOLLOW.
+            WHO DON&apos;T FOLLOW.
           </h2>
 
           <div className="mt-10 flex justify-end sm:mt-12">
@@ -583,6 +326,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-5 text-xs text-zinc-400">
+            {/* INSTAGRAM */}
             <a
               href="https://www.instagram.com/bluc_fshn/"
               target="_blank"
@@ -617,6 +361,7 @@ export default function Home() {
               </span>
             </a>
 
+            {/* TIKTOK */}
             <a
               href="https://www.tiktok.com/@blucfshn"
               target="_blank"
@@ -641,6 +386,7 @@ export default function Home() {
               </span>
             </a>
 
+            {/* CONTACT */}
             <a
               href="#contact"
               className="flex items-center gap-3 transition-colors hover:text-white"
@@ -667,4 +413,3 @@ export default function Home() {
     </main>
   );
 }
-
