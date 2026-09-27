@@ -57,8 +57,8 @@ export default function Home() {
             ),
             radial-gradient(
               circle 30vw at ${100 - mousePosition.x}% ${
-            100 - mousePosition.y
-          }%,
+                100 - mousePosition.y
+              }%,
               rgba(170, 255, 0, 0.10),
               transparent 65%
             )
@@ -206,81 +206,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COLLECTION PREVIEW */}
-      <section className="px-5 py-24 sm:px-6 sm:py-32 md:px-10 md:py-48">
-        <div className="mb-12 flex items-end justify-between gap-4 sm:mb-16">
-          <div>
-            <p className="mb-3 text-[10px] tracking-[0.25em] text-zinc-500 sm:text-xs sm:tracking-[0.3em]">
-              BLUC FSHN / 004
-            </p>
-
-            <h2 className="text-[15vw] font-black uppercase leading-none tracking-[-0.04em] sm:text-6xl md:text-9xl">
-              COLLECTION
-            </h2>
-          </div>
-
-          <p className="hidden text-xs tracking-[0.25em] text-zinc-500 md:block">
-            SS26
-          </p>
-        </div>
-
-        {/* MONEY LAUNDERING PREVIEW */}
-        <div className="relative min-h-[65vh] overflow-hidden sm:min-h-[70vh]">
-          <img
-            src="/jacket.moneylaundering.jpeg"
-            alt="BLUC FSHN Money Laundering jacket"
-            className="absolute inset-0 h-full w-full object-cover brightness-[0.85] transition-transform duration-1000 hover:scale-105"
-          />
-
-          <div className="absolute inset-0 bg-black/30" />
-
-          {/* FALLING BLUC MONEY */}
-          <div className="money-rain pointer-events-none absolute inset-0 z-10">
-            {Array.from({ length: 16 }).map((_, index) => (
-              <img
-                key={index}
-                src="/bluc-money.png"
-                alt=""
-                className={`money-note money-note-${index + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* SOFT COLOUR EFFECTS */}
-          <div className="absolute left-[10%] top-[20%] h-24 w-24 rounded-full bg-red-500/10 blur-3xl sm:h-32 sm:w-32" />
-
-          <div className="absolute bottom-[10%] right-[15%] h-32 w-32 rounded-full bg-lime-400/10 blur-3xl sm:h-40 sm:w-40" />
-
-          {/* COLLECTION INFORMATION */}
-          <div className="relative z-20 flex min-h-[65vh] flex-col justify-between p-5 sm:min-h-[70vh] sm:p-6 md:p-10">
-            <div className="flex justify-between gap-4 text-[10px] tracking-[0.15em] text-white/70 sm:text-xs sm:tracking-[0.2em]">
-              <span>DROP 04</span>
-              <span>BLUC / 004</span>
-            </div>
-
-            <div>
-              <p className="mb-3 text-xs tracking-[0.2em] text-white/70 sm:text-sm sm:tracking-[0.25em]">
-                MONEY LAUNDRY
-              </p>
-
-              <h3 className="text-5xl font-black uppercase tracking-[-0.03em] sm:text-6xl md:text-8xl">
-                MONEY
-                <br />
-                LAUNDRY.
-              </h3>
-
-              <a
-                href="/collections/money-laundering"
-                className="mt-6 inline-flex items-center gap-3 border border-white/30 px-5 py-3 text-[10px] tracking-[0.25em] transition-all duration-300 hover:bg-white hover:text-black sm:text-xs"
-              >
-                VIEW DROP
-                <span>→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ABOUT */}
       <section
         id="about"
@@ -357,6 +282,7 @@ export default function Home() {
                 <span className="block text-[9px] tracking-[0.2em] text-zinc-600">
                   INSTAGRAM
                 </span>
+
                 <span className="tracking-[0.08em]">@bluc_fshn</span>
               </span>
             </a>
@@ -382,6 +308,7 @@ export default function Home() {
                 <span className="block text-[9px] tracking-[0.2em] text-zinc-600">
                   TIKTOK
                 </span>
+
                 <span className="tracking-[0.08em]">@blucfshn</span>
               </span>
             </a>
@@ -399,6 +326,7 @@ export default function Home() {
                 <span className="block text-[9px] tracking-[0.2em] text-zinc-600">
                   CONTACT
                 </span>
+
                 <span className="tracking-[0.08em]">GET IN TOUCH</span>
               </span>
             </a>
