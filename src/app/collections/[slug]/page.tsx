@@ -1,3 +1,4 @@
+
 "use client";
 
 import { use, useEffect, useState } from "react";
@@ -68,29 +69,54 @@ const collections: Record<
   },
 };
 
+/* 40 MONEY PIECES */
 const moneyPieces = [
-  { left: "3%", delay: "0s", duration: "8s", size: "55px", rotate: "-15deg" },
-  { left: "9%", delay: "2s", duration: "10s", size: "70px", rotate: "20deg" },
-  { left: "16%", delay: "5s", duration: "9s", size: "45px", rotate: "-25deg" },
-  { left: "24%", delay: "1s", duration: "11s", size: "65px", rotate: "12deg" },
-  { left: "31%", delay: "4s", duration: "8s", size: "50px", rotate: "-18deg" },
-  { left: "38%", delay: "7s", duration: "10s", size: "75px", rotate: "25deg" },
-  { left: "45%", delay: "2.5s", duration: "9s", size: "48px", rotate: "-10deg" },
-  { left: "52%", delay: "6s", duration: "11s", size: "60px", rotate: "18deg" },
-  { left: "59%", delay: "0.5s", duration: "8s", size: "52px", rotate: "-22deg" },
-  { left: "66%", delay: "3s", duration: "10s", size: "72px", rotate: "15deg" },
-  { left: "73%", delay: "5.5s", duration: "9s", size: "46px", rotate: "-17deg" },
-  { left: "80%", delay: "1.5s", duration: "11s", size: "62px", rotate: "23deg" },
-  { left: "87%", delay: "4.5s", duration: "8s", size: "50px", rotate: "-12deg" },
-  { left: "94%", delay: "7.5s", duration: "10s", size: "68px", rotate: "19deg" },
+  { left: "1%", delay: "-1s", duration: "7s", size: "42px", rotate: "-18deg" },
+  { left: "4%", delay: "2s", duration: "9s", size: "55px", rotate: "16deg" },
+  { left: "7%", delay: "5s", duration: "8s", size: "35px", rotate: "-25deg" },
+  { left: "10%", delay: "0s", duration: "10s", size: "62px", rotate: "12deg" },
+  { left: "13%", delay: "4s", duration: "7.5s", size: "48px", rotate: "-10deg" },
 
-  { left: "6%", delay: "6.5s", duration: "12s", size: "42px", rotate: "14deg" },
-  { left: "19%", delay: "8s", duration: "9s", size: "58px", rotate: "-20deg" },
-  { left: "35%", delay: "9s", duration: "10s", size: "47px", rotate: "16deg" },
-  { left: "49%", delay: "8.5s", duration: "12s", size: "70px", rotate: "-14deg" },
-  { left: "63%", delay: "10s", duration: "9s", size: "44px", rotate: "21deg" },
-  { left: "77%", delay: "9.5s", duration: "11s", size: "57px", rotate: "-19deg" },
-  { left: "91%", delay: "11s", duration: "10s", size: "65px", rotate: "13deg" },
+  { left: "16%", delay: "1.5s", duration: "9.5s", size: "38px", rotate: "22deg" },
+  { left: "19%", delay: "6s", duration: "8.5s", size: "68px", rotate: "-16deg" },
+  { left: "22%", delay: "3s", duration: "11s", size: "45px", rotate: "18deg" },
+  { left: "25%", delay: "-2s", duration: "8s", size: "58px", rotate: "-22deg" },
+  { left: "28%", delay: "5.5s", duration: "9s", size: "40px", rotate: "14deg" },
+
+  { left: "31%", delay: "2.5s", duration: "7s", size: "72px", rotate: "-12deg" },
+  { left: "34%", delay: "0.5s", duration: "10s", size: "44px", rotate: "25deg" },
+  { left: "37%", delay: "7s", duration: "8.5s", size: "52px", rotate: "-20deg" },
+  { left: "40%", delay: "3.5s", duration: "9.5s", size: "36px", rotate: "10deg" },
+  { left: "43%", delay: "1s", duration: "11s", size: "64px", rotate: "-15deg" },
+
+  { left: "46%", delay: "6.5s", duration: "7.5s", size: "46px", rotate: "20deg" },
+  { left: "49%", delay: "4s", duration: "8.5s", size: "70px", rotate: "-24deg" },
+  { left: "52%", delay: "2s", duration: "10s", size: "39px", rotate: "13deg" },
+  { left: "55%", delay: "8s", duration: "9s", size: "57px", rotate: "-18deg" },
+  { left: "58%", delay: "0.5s", duration: "7s", size: "43px", rotate: "16deg" },
+
+  { left: "61%", delay: "5s", duration: "11s", size: "65px", rotate: "-11deg" },
+  { left: "64%", delay: "2.5s", duration: "8s", size: "37px", rotate: "23deg" },
+  { left: "67%", delay: "7s", duration: "9.5s", size: "50px", rotate: "-21deg" },
+  { left: "70%", delay: "1s", duration: "8.5s", size: "60px", rotate: "15deg" },
+  { left: "73%", delay: "4.5s", duration: "10s", size: "41px", rotate: "-17deg" },
+
+  { left: "76%", delay: "0s", duration: "7.5s", size: "69px", rotate: "19deg" },
+  { left: "79%", delay: "6s", duration: "9s", size: "45px", rotate: "-13deg" },
+  { left: "82%", delay: "3s", duration: "11s", size: "54px", rotate: "24deg" },
+  { left: "85%", delay: "1.5s", duration: "8s", size: "38px", rotate: "-20deg" },
+  { left: "88%", delay: "5.5s", duration: "9.5s", size: "63px", rotate: "11deg" },
+
+  { left: "91%", delay: "2s", duration: "7s", size: "47px", rotate: "-16deg" },
+  { left: "94%", delay: "7.5s", duration: "10s", size: "71px", rotate: "21deg" },
+  { left: "97%", delay: "4s", duration: "8.5s", size: "40px", rotate: "-14deg" },
+
+  { left: "8%", delay: "8s", duration: "12s", size: "52px", rotate: "17deg" },
+  { left: "23%", delay: "9s", duration: "10s", size: "66px", rotate: "-19deg" },
+  { left: "38%", delay: "10s", duration: "12s", size: "43px", rotate: "14deg" },
+  { left: "63%", delay: "9.5s", duration: "11s", size: "59px", rotate: "-23deg" },
+  { left: "78%", delay: "8.5s", duration: "10s", size: "46px", rotate: "18deg" },
+  { left: "92%", delay: "10.5s", duration: "12s", size: "61px", rotate: "-12deg" },
 ];
 
 export default function CollectionPage({
@@ -99,7 +125,6 @@ export default function CollectionPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = use(params);
-
   const collection = collections[slug];
 
   const [cursorPosition, setCursorPosition] = useState({
@@ -149,10 +174,11 @@ export default function CollectionPage({
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050505] px-5 py-8 text-[#f5f5f0] sm:px-6 md:px-10 md:py-10">
+
       {/* MONEY RAIN */}
       {isMoneyLaundry && (
         <div
-          className="pointer-events-none fixed inset-0 z-10 overflow-hidden"
+          className="pointer-events-none fixed inset-0 z-25 overflow-hidden"
           aria-hidden="true"
         >
           {moneyPieces.map((money, index) => (
@@ -160,14 +186,17 @@ export default function CollectionPage({
               key={index}
               src="/bluc-money.png"
               alt=""
-             className="money-rain-piece absolute top-[-120px] opacity-80"
-              style={{
-                left: money.left,
-                width: money.size,
-                height: "auto",
-                animation: `moneyFall ${money.duration} linear ${money.delay} infinite`,
-                "--money-rotate": money.rotate,
-              } as React.CSSProperties}
+              className="money-rain-piece absolute top-[-140px] "
+              style={
+                {
+                  left: money.left,
+                  width: money.size,
+                  height: "auto",
+                  animationDuration: money.duration,
+                  animationDelay: money.delay,
+                  "--money-rotate": money.rotate,
+                } as React.CSSProperties
+              }
             />
           ))}
         </div>
@@ -197,8 +226,6 @@ export default function CollectionPage({
           }}
         />
       </div>
-
-      
 
       {/* HEADER */}
       <header className="relative z-30 mb-16 flex items-start justify-between md:mb-20">
@@ -245,82 +272,83 @@ export default function CollectionPage({
       </section>
 
       {/* COLLECTION PIECES */}
-  <section className="relative z-30">
-  {collection.pieces.length > 0 ? (
-    <div className="grid gap-12 md:grid-cols-2">
-      {collection.pieces.map((piece, index) => (
-        <article key={piece.name} className="group">
-  {/* CLOTHING NAME + PRICE */}
-  <div className="mb-5 flex items-start justify-between border-b border-white/10 pb-5">
-    <div>
-      <h2 className="text-lg font-bold uppercase tracking-[-0.02em] sm:text-xl">
-        {piece.name}
-      </h2>
+      <section className="relative z-30">
+        {collection.pieces.length > 0 ? (
+          <div className="grid gap-12 md:grid-cols-2">
+            {collection.pieces.map((piece, index) => (
+              <article key={piece.name} className="group">
 
-      <p className="mt-2 text-[10px] tracking-[0.2em] text-zinc-500">
-        BLUC FSHN / NAIROBI
-      </p>
-    </div>
+                {/* CLOTHING NAME + PRICE */}
+                <div className="mb-5 flex items-start justify-between border-b border-white/10 pb-5">
+                  <div>
+                    <h2 className="text-lg font-bold uppercase tracking-[-0.02em] sm:text-xl">
+                      {piece.name}
+                    </h2>
 
-    <p className="text-xs tracking-[0.15em]">
-      {piece.price}
-    </p>
-  </div>
+                    <p className="mt-2 text-[10px] tracking-[0.2em] text-zinc-500">
+                      BLUC FSHN / NAIROBI
+                    </p>
+                  </div>
 
-  {/* MAIN CLOTHING IMAGE */}
-  <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
-    <img
-      src={piece.images[0]}
-      alt={piece.name}
-      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-    />
+                  <p className="text-xs tracking-[0.15em]">
+                    {piece.price}
+                  </p>
+                </div>
 
-    <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/25" />
+                {/* MAIN CLOTHING IMAGE */}
+                <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
+                  <img
+                    src={piece.images[0]}
+                    alt={piece.name}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
 
-    <div className="absolute left-5 top-5 flex w-[calc(100%-40px)] justify-between text-[9px] tracking-[0.2em] text-white/70 sm:left-6 sm:top-6 sm:w-[calc(100%-48px)]">
-      <span>0{index + 1}</span>
-      <span>{collection.drop}</span>
-    </div>
-  </div>
+                  <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/25" />
 
-  {/* ADDITIONAL CLOTHING IMAGES */}
-  {piece.images.length > 1 && (
-    <div className="mt-4 grid grid-cols-2 gap-4">
-      {piece.images.slice(1).map((image, imageIndex) => (
-        <div
-          key={image}
-          className="aspect-square overflow-hidden bg-zinc-900"
-        >
-          <img
-            src={image}
-            alt={`${piece.name} view ${imageIndex + 2}`}
-            className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-          />
-        </div>
-      ))}
-    </div>
-  )}
-</article>
-      ))}
-    </div>
-  ) : (
-    <div className="flex min-h-[40vh] items-center justify-center border-y border-white/10">
-      <div className="text-center">
-        <p className="text-[10px] tracking-[0.3em] text-zinc-600">
-          COLLECTION DETAILS
-        </p>
+                  <div className="absolute left-5 top-5 flex w-[calc(100%-40px)] justify-between text-[9px] tracking-[0.2em] text-white/70 sm:left-6 sm:top-6 sm:w-[calc(100%-48px)]">
+                    <span>0{index + 1}</span>
+                    <span>{collection.drop}</span>
+                  </div>
+                </div>
 
-        <h2 className="mt-4 text-3xl font-black uppercase tracking-[-0.04em]">
-          COMING SOON
-        </h2>
+                {/* ADDITIONAL CLOTHING IMAGES */}
+                {piece.images.length > 1 && (
+                  <div className="mt-4 grid grid-cols-2 gap-4">
+                    {piece.images.slice(1).map((image, imageIndex) => (
+                      <div
+                        key={image}
+                        className="aspect-square overflow-hidden bg-zinc-900"
+                      >
+                        <img
+                          src={image}
+                          alt={`${piece.name} view ${imageIndex + 2}`}
+                          className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="flex min-h-[40vh] items-center justify-center border-y border-white/10">
+            <div className="text-center">
+              <p className="text-[10px] tracking-[0.3em] text-zinc-600">
+                COLLECTION DETAILS
+              </p>
 
-        <p className="mt-4 text-[10px] tracking-[0.2em] text-zinc-500">
-          MORE FROM BLUC FSHN
-        </p>
-      </div>
-    </div>
-  )}
-</section>
+              <h2 className="mt-4 text-3xl font-black uppercase tracking-[-0.04em]">
+                COMING SOON
+              </h2>
+
+              <p className="mt-4 text-[10px] tracking-[0.2em] text-zinc-500">
+                MORE FROM BLUC FSHN
+              </p>
+            </div>
+          </div>
+        )}
+      </section>
 
       {/* FOOTER */}
       <footer className="relative z-30 mt-24 border-t border-white/10 pt-6">
@@ -329,6 +357,9 @@ export default function CollectionPage({
           <p>MADE IN NAIROBI</p>
         </div>
       </footer>
+
+
     </main>
   );
 }
+

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -27,6 +28,33 @@ const collections = [
     number: "DROP 01",
     image: "/bee.boy.png",
   },
+];
+
+const moneyRain = [
+  { left: "2%", delay: "-1s", duration: "5.5s", size: "32px", rotate: "-18deg" },
+  { left: "7%", delay: "1.2s", duration: "6.5s", size: "42px", rotate: "12deg" },
+  { left: "12%", delay: "-2.5s", duration: "5s", size: "36px", rotate: "-8deg" },
+  { left: "17%", delay: "0.5s", duration: "7s", size: "48px", rotate: "20deg" },
+  { left: "22%", delay: "-3s", duration: "5.8s", size: "34px", rotate: "-15deg" },
+  { left: "27%", delay: "1.8s", duration: "6.2s", size: "44px", rotate: "8deg" },
+  { left: "32%", delay: "-1.5s", duration: "5.2s", size: "30px", rotate: "25deg" },
+  { left: "37%", delay: "0.8s", duration: "6.8s", size: "46px", rotate: "-20deg" },
+  { left: "42%", delay: "-2s", duration: "5.5s", size: "38px", rotate: "15deg" },
+  { left: "47%", delay: "1.5s", duration: "6.5s", size: "50px", rotate: "-10deg" },
+  { left: "52%", delay: "-0.8s", duration: "5.8s", size: "34px", rotate: "18deg" },
+  { left: "57%", delay: "2.2s", duration: "7s", size: "42px", rotate: "-25deg" },
+  { left: "62%", delay: "-2.8s", duration: "5.3s", size: "36px", rotate: "10deg" },
+  { left: "67%", delay: "0.3s", duration: "6.4s", size: "48px", rotate: "-12deg" },
+  { left: "72%", delay: "-1.8s", duration: "5.6s", size: "32px", rotate: "22deg" },
+  { left: "77%", delay: "1.7s", duration: "6.8s", size: "45px", rotate: "-18deg" },
+  { left: "82%", delay: "-2.2s", duration: "5.2s", size: "37px", rotate: "14deg" },
+  { left: "87%", delay: "0.9s", duration: "6.3s", size: "50px", rotate: "-8deg" },
+  { left: "92%", delay: "-1.2s", duration: "5.7s", size: "35px", rotate: "20deg" },
+  { left: "97%", delay: "2s", duration: "6.7s", size: "43px", rotate: "-15deg" },
+  { left: "10%", delay: "3s", duration: "5.4s", size: "40px", rotate: "16deg" },
+  { left: "29%", delay: "3.5s", duration: "6s", size: "33px", rotate: "-22deg" },
+  { left: "59%", delay: "3.2s", duration: "5.9s", size: "47px", rotate: "11deg" },
+  { left: "89%", delay: "3.8s", duration: "6.6s", size: "39px", rotate: "-19deg" },
 ];
 
 export default function CollectionsPage() {
@@ -116,61 +144,61 @@ export default function CollectionsPage() {
             className="group relative block overflow-hidden"
           >
             <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
-  <img
-    src={collection.image}
-    alt={collection.name}
-    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-  />
 
-  {collection.slug === "money-laundering" && (
-    <div
-      className="pointer-events-none absolute inset-0 z-25 overflow-hidden"
-      aria-hidden="true"
-    >
-      {[
-        { left: "5%", delay: "0s", duration: "5s", size: "42px" },
-        { left: "20%", delay: "1.5s", duration: "6s", size: "35px" },
-        { left: "38%", delay: "0.8s", duration: "5.5s", size: "45px" },
-        { left: "55%", delay: "2s", duration: "6.5s", size: "38px" },
-        { left: "72%", delay: "0.5s", duration: "5s", size: "42px" },
-        { left: "88%", delay: "2.5s", duration: "6s", size: "35px" },
-      ].map((money, index) => (
-        <img
-          key={index}
-          src="/bluc-money.png"
-          alt=""
-          className="money-rain-preview absolute top-[-80px] opacity-80"
-          style={{
-            left: money.left,
-            width: money.size,
-            height: "auto",
-            animationDuration: money.duration,
-            animationDelay: money.delay,
-          }}
-        />
-      ))}
-    </div>
-  )}
+              <img
+                src={collection.image}
+                alt={collection.name}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
 
-  <div className="absolute inset-0 z-20 bg-black/20 transition-colors duration-500 group-hover:bg-black/40" />
+              {/* MONEY RAIN — MONEY LAUNDERING ONLY */}
+              {collection.slug === "money-laundering" && (
+                <div
+                  className="pointer-events-none absolute inset-0 z-25 overflow-hidden"
+                  aria-hidden="true"
+                >
+                  {moneyRain.map((money, index) => (
+                    <img
+                      key={index}
+                      src="/bluc-money.png"
+                      alt=""
+                      className="money-rain-preview absolute top-[-100px] opacity-85"
+                      style={{
+                        left: money.left,
+                        width: money.size,
+                        height: "auto",
+                        animationDuration: money.duration,
+                        animationDelay: money.delay,
+                        transform: `rotate(${money.rotate})`,
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
 
-  <div className="absolute inset-0 z-30 flex flex-col justify-between p-5 sm:p-6 md:p-8">
-    <div className="flex justify-between text-[9px] tracking-[0.2em] text-white/70 sm:text-[10px]">
-      <span>{collection.number}</span>
-      <span>BLUC / 004</span>
-    </div>
+              {/* DARK OVERLAY */}
+              <div className="absolute inset-0 z-20 bg-black/20 transition-colors duration-500 group-hover:bg-black/40" />
 
-    <div>
-      <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.04em] sm:text-5xl md:text-6xl">
-        {collection.name}
-      </h2>
+              {/* TEXT */}
+              <div className="absolute inset-0 z-30 flex flex-col justify-between p-5 sm:p-6 md:p-8">
 
-     <div className="mt-4 inline-block bg-black px-4 py-3 text-[10px] font-medium tracking-[0.2em] text-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
-  VIEW COLLECTION →
-</div>
-    </div>
-  </div>
-</div>
+                <div className="flex justify-between text-[9px] tracking-[0.2em] text-white/70 sm:text-[10px]">
+                  <span>{collection.number}</span>
+                  <span>BLUC / 004</span>
+                </div>
+
+                <div>
+                  <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.04em] sm:text-5xl md:text-6xl">
+                    {collection.name}
+                  </h2>
+
+                  <div className="mt-4 inline-block bg-black px-4 py-3 text-[10px] font-medium tracking-[0.2em] text-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
+                    VIEW COLLECTION →
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </a>
         ))}
       </section>
@@ -182,6 +210,9 @@ export default function CollectionsPage() {
           <p>MADE IN NAIROBI</p>
         </div>
       </footer>
+
+      
     </main>
   );
 }
+

@@ -602,3 +602,79 @@ body * {
   animation-iteration-count: infinite;
   pointer-events: none;
 }
+
+.money-rain-preview {
+  animation-name: moneyFallPreview;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+@keyframes moneyFallPreview {
+  0% {
+    transform: translateY(-120px) rotate(-15deg);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 0.85;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: translateY(calc(100% + 150px)) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.money-rain-piece {
+  animation-name: moneyFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+  filter: contrast(1.15) saturate(1.15);
+}
+
+@keyframes moneyFall {
+  0% {
+    transform: translateY(-160px) rotate(var(--money-rotate));
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0.95;
+  }
+
+  100% {
+    transform: translateY(calc(100vh + 180px))
+      rotate(calc(var(--money-rotate) + 180deg));
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .money-rain-piece {
+    opacity: 0.65;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .money-rain-piece,
+  .money-rain-preview {
+    animation: none;
+    display: none;
+  }
+}
