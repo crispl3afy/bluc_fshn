@@ -59,7 +59,9 @@ const dropTwoLetters = [
   "a",
   "b",
   "c",
+  "d",
   "e",
+  "f",
   "g",
   "h",
   "i",
@@ -347,7 +349,7 @@ export default function CollectionPage({ params }: PageProps) {
                   className="relative overflow-hidden bg-neutral-900 group"
                 >
                   <img
-                    src={`/drop two ${letter}.jpeg`}
+                    src={`/drop two ${letter}.${letter === "d" || letter === "f" ? "png" : "jpeg" }`}
                     alt={`BLUC FSHN Drop Two ${letter}`}
                     className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]"
                   />
