@@ -678,3 +678,22 @@ body * {
     display: none;
   }
 }
+.money-rain-piece {
+  position: absolute;
+  top: -150px;
+  pointer-events: none;
+  animation-name: moneyFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes moneyFall {
+  0% {
+    transform: translateY(-150px) rotate(var(--money-rotate));
+  }
+
+  100% {
+    transform: translateY(calc(100vh + 150px))
+      rotate(calc(var(--money-rotate) + 180deg));
+  }
+}

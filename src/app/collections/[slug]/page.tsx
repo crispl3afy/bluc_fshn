@@ -196,8 +196,8 @@ export default function CollectionPage({ params }: PageProps) {
 
   return (
     <main
-      className="min-h-screen bg-[#050505] text-[#f5f5f0]"
-      style={{
+  className="relative min-h-screen bg-[#050505] text-[#f5f5f0]"
+  style={{
         backgroundImage: `
           radial-gradient(
             circle at ${cursorPosition.x}% ${cursorPosition.y}%,
@@ -212,6 +212,27 @@ export default function CollectionPage({ params }: PageProps) {
         `,
       }}
     >
+
+           {isMoneyLaundry && (
+        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+          {moneyPieces.map((money, index) => (
+            <img
+              key={index}
+              src="/bluc-money.png"
+              alt=""
+              className="money-rain-piece"
+              style={{
+                left: money.left,
+                width: money.size,
+                animationDuration: money.duration,
+                animationDelay: money.delay,
+                ["--money-rotate" as string]: money.rotate,
+              }}
+            />
+          ))}
+        </div>
+      )}
+       
       {/* CUSTOM CURSOR */}
 
       <img
@@ -421,34 +442,16 @@ export default function CollectionPage({ params }: PageProps) {
           </section>
 
           {/* HERO */}
+                     {/* HERO */}
 
-          <section className="px-6 md:px-10 pb-16">
-            <div className="relative overflow-hidden">
-              <img
-                src="/jacket.moneylaundering.jpeg"
-                alt="Money Laundry"
-                className="w-full h-auto block"
-              />
-
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {moneyPieces.map((money, index) => (
-                  <img
-                    key={index}
-                    src="/bluc-money.png"
-                    alt=""
-                    className="money-rain-piece"
-                    style={{
-                      left: money.left,
-                      width: money.size,
-                      animationDuration: money.duration,
-                      animationDelay: money.delay,
-                      ["--money-rotate" as string]: money.rotate,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
+          <section className="relative z-10 px-6 md:px-10 pb-16">
+            <img
+              src="/jacket.moneylaundering.jpeg"
+              alt="Money Laundry"
+              className="w-full h-auto block"
+            />
           </section>
+       
 
           {/* PRODUCTS */}
 
